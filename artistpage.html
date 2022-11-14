@@ -10,10 +10,129 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <script src="./artistpage.js" defer></script>
     <title>Artist page</title>
   </head>
   <body>
+    <div id="navbar-container" class="sticky-top">
+      <nav
+        class="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link px-0 mr-3" href="#"
+                ><i class="bi bi-chevron-left"></i>
+                <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 disabled"
+                ><i class="bi bi-chevron-right"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            data-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown link
+          </a>
+
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+        <div id="profile-tag" class="d-flex align-items-center">
+          <div
+            id="profile-image"
+            class="d-flex align-items-center justify-content-center"
+          >
+            <i class="bi bi-person"></i>
+          </div>
+          <div>name</div>
+        </div>
+      </nav>
+    </div>
+
+    <div
+      id="jumbotron-container"
+      class="jumbotron-bg jumbotron jumbotron-fluid py-0 d-flex align-items-end"
+    >
+      <div class="container-fluid text-light d-flex flex-column">
+        <p><i class="bi text-primary bi-patch-check-fill"></i></p>
+        <h1 class="display-4">Artist name</h1>
+        <p class="lead">.... monthly listeners</p>
+      </div>
+    </div>
+
+    <div class="music-container container-fluid">
+      <div class="row">
+        <div class="container-fluid d-flex my-3">
+          <div
+            class="pause-button mr-4 d-flex justify-content-center align-items-center"
+          >
+            <div class="d-flex">
+              <div class="pause-button-lines mr-1"></div>
+              <div class="pause-button-lines"></div>
+            </div>
+          </div>
+          <div class="text-light follow-button my-auto mr-4">FOLLOW</div>
+          <i class="bi bi-three-dots text-light my-auto"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 text-light">
+          Popular
+          <ol>
+            <li>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="song-image-li-item d-flex align-items-center justify-content-center"
+                  >
+                    Image
+                  </div>
+                  <div class="ml-3">Song name</div>
+                </div>
+                <span>1.0438432.322</span>
+                <span>3:32</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="col-6 col-md-3 text-light">
+          Artist pick
+          <div class="d-flex font-size-artist-pick-section">
+            <div id="artist-pick-image"></div>
+            <div class="ml-2">
+              <div class="d-flex">
+                <div id="image-tag-posted-by" class="mr-1"></div>
+                <div class="d-flex align-items-center">Posted by Queen</div>
+              </div>
+              <div
+                class="d-flex flex-column align-items-between justify-content-start"
+              >
+                <div>Queen Best Of</div>
+                <div>Playlist</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
