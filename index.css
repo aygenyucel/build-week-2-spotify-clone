@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+:root {
+  --color-gray: #b8b8b8;
+  --font-main: "Montserrat", sans-serif;
+  --color-dark-gray: #7e7e7e;
+  --color-darker-gray: #484848;
+}
+
+.custom-navbar {
+  position: relative;
+  height: calc(100vh - 90px);
+  /* TODO: Calculate height depend on  the bottom of page */
+  background-color: black;
+  width: 240px;
+  color: var(--color-gray);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-block: 20px;
+  padding-inline: 8px;
+}
+
+.custom-navbar .navbar-logo {
+  width: 135px;
+  height: auto;
+  object-fit: cover;
+}
+
+.custom-navbar .icon-div {
+  margin-right: 15px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 8px;
+}
+
+.custom-navbar .navbar-top .primary-options {
+  margin-block: 25px;
+}
+
+.custom-navbar .navbar-top .primary-options i,
+.install-icon {
+  font-size: 23px;
+}
+
+.custom-navbar .navbar-top a {
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.custom-navbar .navbar-top .secondary-options .create-playlist-icon {
+  background-color: var(--color-gray);
+  color: black;
+  border-radius: 2px;
+}
+
+.custom-navbar .navbar-top .secondary-options .liked-songs-icon {
+  background: rgb(60, 29, 160);
+  background: linear-gradient(
+    159deg,
+    rgba(60, 29, 160, 1) 0%,
+    rgba(130, 156, 155, 1) 91%
+  );
+  border-radius: 2px;
+}
+
+.divider {
+  background-color: #252525;
+  border-width: 0.5px;
+  margin-block: 10px;
+}
+
+.custom-navbar .navbar-bottom {
+  float: left;
+  width: 100%;
+  overflow-y: auto;
+  max-height: calc(100% - 338px);
+}
+.custom-navbar .navbar-bottom .navbar-playlist {
+  list-style: none;
+}
+
+.custom-navbar .navbar-bottom .navbar-playlist .navbar-playlist-item {
+  margin-block: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.navbar-bottom::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.navbar-bottom::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+.navbar-bottom::-webkit-scrollbar-thumb {
+  background-color: var(--color-darker-gray); /* color of the scroll thumb */
+  max-height: 50px;
+}
+
+.collaborative-playlist-item {
+  position: relative;
+  padding-right: 20px;
+}
+.collaborative-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  font-size: 15px;
+  width: 15px;
+}
+
+.install-app {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  background-color: black;
+  z-index: 999;
+  padding-inline: 8px;
+}
+
+.install-app a {
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.song_list {
+  width: 100%;
+}
+
+.buttons {
+  width: 75px;
+}
+
+.upper_hat {
+  padding-top: 10px;
+  padding-bottom: 45px;
+  padding-inline: 30px;
+}
+
+.buttons button {
+  width: 30px;
+  aspect-ratio: 1/1;
+  border: 0px;
+  border-radius: 50%;
+  background-color: #252525;
+  color: white;
+}
+
+.btn {
+  border: 0px;
+  width: 140px;
+  height: 30px;
+  border-radius: 23px;
+  position: relative;
+  padding: 4px;
+}
+
+.album_cover {
+  padding-inline: 30px;
+  margin-bottom: 15px;
+}
+
+.album_cover img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.bottom_text img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.album_name {
+  padding-left: 22px;
+}
+
+.album_name > span:last-of-type {
+  font-size: 35px;
+}
+
+.album_name > span:first-of-type,
+.bottom_text span {
+  font-size: 12px;
+}
+
+.playlist {
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  padding-inline: 30px;
+}
+
+.play_button {
+  width: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #02ff5a;
+  position: relative;
+}
+
+.play_button i {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.play_song {
+  padding-top: 20px;
+}
+
+.fa-ellipsis,
+.fa-face-grin-hearts {
+  font-size: 50px;
+}
+
+.fa-ellipsis,
+.fa-face-grin-hearts,
+.play_button {
+  margin-right: 30px;
+}
+
+footer {
+  width: 100%;
+  height: 90px;
+  background-color: #252525;
+}
