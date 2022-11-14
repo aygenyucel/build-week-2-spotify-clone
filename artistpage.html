@@ -19,85 +19,94 @@
     <title>Artist page</title>
   </head>
   <body>
-    <div id="navbar-container" class="sticky-top">
-      <nav
-        class="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
-      >
-        <div>
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link px-0 mr-3" href="#"
-                ><i class="bi bi-chevron-left"></i>
-                <span class="sr-only">(current)</span></a
+    <div>
+      <div id="navbar-container" class="sticky-top">
+        <nav
+          class="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link px-0 mr-3" href="#"
+                  ><i
+                    class="bi bi-chevron-left arrowLeftAndRight arrow-left"
+                  ></i>
+                  <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-0 disabled"
+                  ><i
+                    class="bi bi-chevron-right arrowLeftAndRight arrow-right"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a
+              id="account-container"
+              class="py-3 btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <div
+                class="d-flex align-items-center overflow-hidden align-to-the-left"
               >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-0 disabled"
-                ><i class="bi bi-chevron-right"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a
-            class="btn btn-secondary dropdown-toggle"
-            href="#"
-            role="button"
-            data-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dropdown link
-          </a>
+                <span id="profile-image"
+                  ><i class="bi bi-person person-icon-account"></i
+                ></span>
+                <span class="pl-1 wirte-just-on-one-line"
+                  >namedsddsajdsjkdnsak</span
+                >
+              </div>
+            </a>
 
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div>
-        <div id="profile-tag" class="d-flex align-items-center">
-          <div
-            id="profile-image"
-            class="d-flex align-items-center justify-content-center"
-          >
-            <i class="bi bi-person"></i>
-          </div>
-          <div>name</div>
-        </div>
-      </nav>
-    </div>
-
-    <div
-      id="jumbotron-container"
-      class="jumbotron-bg jumbotron jumbotron-fluid py-0 d-flex align-items-end"
-    >
-      <div class="container-fluid text-light d-flex flex-column">
-        <p><i class="bi text-primary bi-patch-check-fill"></i></p>
-        <h1 class="display-4">Artist name</h1>
-        <p class="lead">.... monthly listeners</p>
-      </div>
-    </div>
-
-    <div class="music-container container-fluid">
-      <div class="row">
-        <div class="container-fluid d-flex my-3">
-          <div
-            class="pause-button mr-4 d-flex justify-content-center align-items-center"
-          >
-            <div class="d-flex">
-              <div class="pause-button-lines mr-1"></div>
-              <div class="pause-button-lines"></div>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Log out</a>
             </div>
           </div>
-          <div class="text-light follow-button my-auto mr-4">FOLLOW</div>
-          <i class="bi bi-three-dots text-light my-auto"></i>
+        </nav>
+      </div>
+
+      <div
+        id="jumbotron-container"
+        class="jumbotron-bg jumbotron jumbotron-fluid py-0 d-flex align-items-end"
+      >
+        <div class="container-fluid text-light d-flex flex-column">
+          <p><i class="bi text-primary bi-patch-check-fill"></i></p>
+          <h1 class="display-4">Artist name</h1>
+          <p class="lead">.... monthly listeners</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-9 text-light">
-          Popular
-          <ol>
-            <li>
+
+      <div class="music-container container-fluid">
+        <div class="row">
+          <div class="container-fluid d-flex my-3">
+            <div
+              class="pause-button mr-4 d-flex justify-content-center align-items-center"
+            >
+              <div class="d-flex">
+                <div class="pause-button-lines mr-1"></div>
+                <div class="pause-button-lines"></div>
+              </div>
+            </div>
+            <div class="text-light follow-button my-auto mr-4">FOLLOW</div>
+            <i class="bi bi-three-dots text-light my-auto"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 text-light">
+            Popular
+
+            <!-- <ol>
+            <li class="d-none">
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
                   <div
@@ -111,26 +120,125 @@
                 <span>3:32</span>
               </div>
             </li>
-          </ol>
-        </div>
-        <div class="col-6 col-md-3 text-light">
-          Artist pick
-          <div class="d-flex font-size-artist-pick-section">
-            <div id="artist-pick-image"></div>
-            <div class="ml-2">
-              <div class="d-flex">
-                <div id="image-tag-posted-by" class="mr-1"></div>
-                <div class="d-flex align-items-center">Posted by Queen</div>
-              </div>
-              <div
-                class="d-flex flex-column align-items-between justify-content-start"
-              >
-                <div>Queen Best Of</div>
-                <div>Playlist</div>
+          </ol> -->
+          </div>
+          <div class="col-6 col-md-3 text-light">
+            Artist pick
+            <div class="d-flex font-size-artist-pick-section">
+              <div id="artist-pick-image"></div>
+              <div class="ml-2 d-flex flex-column justify-content-between">
+                <div class="d-flex">
+                  <div id="image-tag-posted-by" class="mr-1"></div>
+                  <div class="d-flex align-items-center">Posted by Queen</div>
+                </div>
+                <div
+                  class="d-flex flex-column align-items-between justify-content-start"
+                >
+                  <div>Queen Best Of</div>
+                  <div>Playlist</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- <div class="row text-center">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card">
+          <img
+            src="./assets/babele-bucegi.jpeg"
+            class="card-img-top"
+            alt="Bucegi Mountains"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Bucegi Mountain</h5>
+            <p class="card-text">
+              The Bucegi Mountains are bordered by Prahova Valley, 
+              an area with the most ski resorts in Romania. Since 1935,                
+              part of the Bucegi Mountains has been included in the list of 
+              protected areas in Romania, with national park status.
+            </p>
+          </div>
+        </div>
+      </div> -->
+      <div id="popular-releases" class="container-fluid pt-5">
+        <div>Popular Releases</div>
+        <div class="row text-center">
+          <!-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-md-auto">
+          <div class="card container relative-position">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Shawn_Mendes_and_Camila_Cabello_-_Se%C3%B1orita.png"
+              class="card-img-top mt-3"
+              alt="..."
+            />
+            <div
+              class="card-body text-light d-flex flex-column align-items-start "
+            >
+              <h5 class="card-title wirte-just-on-one-line">Song title</h5>
+              <p class="card-text">
+                <span>year</span>
+                <span>
+                  <i class="bi bi-dot"></i>
+                </span>
+                <span>Album</span>
+              </p>
+            </div>
+          </div>
+        </div> -->
+        </div>
+      </div>
+    </div>
+    <div
+      id="footer"
+      class="container-fluid d-flex justify-content-between align-items-center sticky"
+    >
+      <div
+        id="music-player-container"
+        class="d-flex justify-content-between align-items-center"
+      >
+        <div id="image-music-player" class="mr-2"></div>
+        <div class="mr-4">
+          <div>Song name</div>
+          <div>Artist name</div>
+        </div>
+        <div><i class="bi bi-heart"></i></div>
+      </div>
+      <div
+        class="d-flex flex-column justify-content-between align-items-center"
+      >
+        <div
+          class="d-flex justify-content-between align-items-center music-player-font-size"
+        >
+          <div class="mx-2"><i class="bi bi-shuffle"></i></div>
+          <div class="mx-2"><i class="bi bi-skip-start-fill"></i></div>
+          <div
+            class="mx-2 playPauseButton playpause-track"
+            onclick="playpauseTrack()"
+          >
+            <i class="bi bi-play-circle-fill"></i>
+          </div>
+          <div class="mx-2"><i class="bi bi-skip-end-fill"></i></div>
+          <div class="mx-2"><i class="bi bi-repeat"></i></div>
+        </div>
+        <div class="slider_container d-flex">
+          <div class="current-time">00:00</div>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="0"
+            class="seek_slider"
+            onchange="seekTo()"
+          />
+          <div class="total-duration">00:00</div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end music-player-font-size">
+        <div class="mx-2"><i class="bi bi-border-width"></i></div>
+        <div class="mx-2"><i class="bi bi-person-badge"></i></div>
+        <div class="mx-2"><i class="bi bi-volume-down"></i></div>
+        <div class="mx-2"><i class="bi bi-arrows-angle-expand"></i></div>
       </div>
     </div>
     <script

@@ -6,13 +6,15 @@ body {
   background-image: url("https://spotmedia.ro/wp-content/uploads/2020/10/Queen-770x465.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 325px;
   margin-bottom: 0;
+  filter: brightness(90%);
+
   /* padding-block: 10px; */
 }
 
 .music-container {
-  height: 100%;
+  /* height: 100%; */
   background-image: linear-gradient(#585858, #121212);
 }
 
@@ -41,7 +43,7 @@ body {
 }
 
 #profile-tag {
-  background-color: red;
+  /* background-color: red; */
   background-color: #170708;
   color: white;
   border-radius: 100px;
@@ -51,10 +53,12 @@ body {
 }
 
 #profile-image {
-  height: 30px;
-  width: 30px;
+  display: inline-block;
+  min-height: 28px;
+  min-width: 28px;
   border-radius: 50%;
   background-color: grey;
+  position: relative;
 }
 
 nav {
@@ -67,6 +71,8 @@ nav {
 
 #navbar-container {
   height: 60px;
+  background-color: #6c676721;
+  transition: background-color 0s;
 }
 
 .song-image-li-item {
@@ -95,4 +101,171 @@ nav {
 
 .font-size-artist-pick-section {
   font-size: 10px;
+}
+
+#account-container {
+  border-radius: 50px;
+  background-color: #170708;
+  height: 30px;
+  width: 150px;
+  border: none;
+}
+
+.person-icon-account {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1px;
+  bottom: 0;
+}
+
+.wirte-just-on-one-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.align-to-the-left {
+  position: relative;
+  left: -10px;
+}
+
+.seeMoreButton {
+  padding-left: 20px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+#image-music-player {
+  width: 70px;
+  height: 70px;
+  background-color: green;
+}
+
+.arrowLeftAndRight {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  background-color: #3b393952;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-left {
+  color: white;
+}
+
+.arrow-right {
+  color: grey;
+}
+
+.lead {
+  font-size: 10px;
+}
+
+#music-player-container {
+  height: 90px;
+}
+
+.center-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.music-player-font-size {
+  font-size: 20px;
+  /* margin-inline: 20px; */
+  /* width: 200px; */
+  color: white;
+}
+
+.playPauseButton {
+  font-size: 35px;
+}
+
+#footer {
+  background-color: #191919;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* #191919 */
+}
+
+.slider_container {
+  /* width: 75%; */
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seek_slider,
+.volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.seek_slider {
+  width: 80%;
+}
+
+#popular-releases {
+  background-color: #121212;
+  color: white;
+  padding-bottom: 90px;
+}
+
+.card {
+  background-color: #1a1919;
+  height: 300px;
+  transition: background-color 0s;
+}
+
+.card img {
+  height: 180px;
+  border-radius: 5px;
+}
+.card-img,
+.card-img-top {
+  object-fit: cover;
+}
+
+#footer {
+  color: white;
+  text-align: center;
+}
+
+.relative-position {
+  position: relative;
+}
+
+.play-button-on-card {
+  visibility: hidden;
+  color: #1fb750;
+  font-size: 50px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.card:hover .play-button-on-card {
+  visibility: visible;
+}
+
+.card:hover {
+  background-color: #3b3a3a;
+}
+
+.nav-active {
+  background-color: #333333 !important;
 }
