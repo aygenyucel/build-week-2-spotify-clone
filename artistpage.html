@@ -19,228 +19,398 @@
     <title>Artist page</title>
   </head>
   <body>
-    <div>
-      <div id="navbar-container" class="sticky-top">
-        <nav
-          class="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
-        >
-          <div>
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link px-0 mr-3" href="#"
-                  ><i
-                    class="bi bi-chevron-left arrowLeftAndRight arrow-left"
-                  ></i>
-                  <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link px-0 disabled"
-                  ><i
-                    class="bi bi-chevron-right arrowLeftAndRight arrow-right"
-                  ></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <a
-              id="account-container"
-              class="py-3 btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center"
-              href="#"
-              role="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <div
-                class="d-flex align-items-center overflow-hidden align-to-the-left"
-              >
-                <span id="profile-image"
-                  ><i class="bi bi-person person-icon-account"></i
-                ></span>
-                <span class="pl-1 wirte-just-on-one-line"
-                  >namedsddsajdsjkdnsak</span
-                >
+    <div class="container-fluid px-0 d-flex">
+      <div class="lateral-navbar-container">
+        <div class="lateral-navbar-container">
+          <div class="main sticky-top">
+            <div class="custom-navbar">
+              <div class="navbar-logo">
+                <div class="container">
+                  <a href="#">
+                    <img
+                      src="./spotify-logo.png"
+                      class="navbar-logo"
+                      alt="spotify logo"
+                    />
+                  </a>
+                </div>
               </div>
-            </a>
-
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Account</a>
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Settings</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Log out</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <div
-        id="jumbotron-container"
-        class="jumbotron-bg jumbotron jumbotron-fluid py-0 d-flex align-items-end"
-      >
-        <div class="container-fluid text-light d-flex flex-column">
-          <p><i class="bi text-primary bi-patch-check-fill"></i></p>
-          <h1 class="display-4">Artist name</h1>
-          <p class="lead">.... monthly listeners</p>
-        </div>
-      </div>
-
-      <div class="music-container container-fluid">
-        <div class="row">
-          <div class="container-fluid d-flex my-3">
-            <div
-              class="pause-button mr-4 d-flex justify-content-center align-items-center"
-            >
-              <div class="d-flex">
-                <div class="pause-button-lines mr-1"></div>
-                <div class="pause-button-lines"></div>
-              </div>
-            </div>
-            <div class="text-light follow-button my-auto mr-4">FOLLOW</div>
-            <i class="bi bi-three-dots text-light my-auto"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-9 text-light">
-            Popular
-
-            <!-- <ol>
-            <li class="d-none">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                  <div
-                    class="song-image-li-item d-flex align-items-center justify-content-center"
-                  >
-                    Image
+              <div class="navbar-top">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div
+                        class="primary-options navbar-nav d-flex flex-column"
+                      >
+                        <div class="home">
+                          <a
+                            href="#"
+                            class="active-link d-flex align-items-center"
+                          >
+                            <div class="icon-div">
+                              <i class="bi bi-house-door-fill home-icon"></i>
+                            </div>
+                            <span class="link-text">Home</span>
+                          </a>
+                        </div>
+                        <div class="search">
+                          <a href="#" class="d-flex align-items-center">
+                            <div class="icon-div">
+                              <i class="bi bi-search search-icon"></i>
+                            </div>
+                            <span class="link-text">Search</span>
+                          </a>
+                        </div>
+                        <div class="your-library">
+                          <a href="#" class="d-flex align-items-center">
+                            <div class="icon-div">
+                              <i class="bi bi-collection library-icon"></i>
+                            </div>
+                            <span class="link-text">Your Library</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="secondary-options">
+                        <div class="create-playlist">
+                          <a href="#" class="d-flex align-items-center">
+                            <div
+                              class="icon-div create-playlist-icon d-flex align-items-center justify-content-center"
+                            >
+                              <i class="bi bi-plus-lg"></i>
+                            </div>
+                            <span>Create Playlist</span>
+                          </a>
+                        </div>
+                        <div class="liked-songs">
+                          <a href="#" class="d-flex align-items-center">
+                            <div class="icon-div liked-songs-icon">
+                              <i class="bi bi-heart-fill"></i>
+                            </div>
+                            <span>Liked Songs</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <hr class="divider" />
+                    </div>
                   </div>
-                  <div class="ml-3">Song name</div>
                 </div>
-                <span>1.0438432.322</span>
-                <span>3:32</span>
               </div>
-            </li>
-          </ol> -->
-          </div>
-          <div class="col-6 col-md-3 text-light">
-            Artist pick
-            <div class="d-flex font-size-artist-pick-section">
-              <div id="artist-pick-image"></div>
-              <div class="ml-2 d-flex flex-column justify-content-between">
-                <div class="d-flex">
-                  <div id="image-tag-posted-by" class="mr-1"></div>
-                  <div class="d-flex align-items-center">Posted by Queen</div>
+              <div class="navbar-bottom">
+                <div class="container">
+                  <ul class="navbar-playlist list-group">
+                    <li class="navbar-playlist-item">Funky Heavy Bluesy</li>
+                    <li class="navbar-playlist-item">Your Top Songs 2020</li>
+                    <li class="navbar-playlist-item">
+                      In Love With You - Erykah lorem ipsum
+                    </li>
+                    <li class="navbar-playlist-item">This Is Rod Stewart</li>
+                    <li class="navbar-playlist-item">FRANCHISE ft. Young</li>
+                    <li class="navbar-playlist-item">Your Top Songs 2019</li>
+                    <li class="navbar-playlist-item">Palleggio</li>
+                    <li class="navbar-playlist-item">This Is Joe Bonamassa</li>
+                    <li class="navbar-playlist-item">Jun19</li>
+                    <li
+                      class="navbar-playlist-item collaborative-playlist-item"
+                    >
+                      Jack 30th Party 2 Lorem, ipsum
+                      <span class="collaborative-icon"
+                        ><i class="bi bi-people"></i
+                      ></span>
+                    </li>
+                    <li
+                      class="navbar-playlist-item collaborative-playlist-item"
+                    >
+                      Jack 30th Party
+                      <span class="collaborative-icon"
+                        ><i class="bi bi-people"></i
+                      ></span>
+                    </li>
+                    <li class="navbar-playlist-item">This Is Opeth</li>
+                    <li class="navbar-playlist-item">This Is Rod Stewart</li>
+                    <li class="navbar-playlist-item">
+                      FRANCHISE ft. Young Thugsjkfh
+                    </li>
+                    <li class="navbar-playlist-item">Your Top Songs 2021</li>
+                    <li class="navbar-playlist-item">Oct16</li>
+                    <li class="navbar-playlist-item">Your Top Songs 2018</li>
+                  </ul>
                 </div>
-                <div
-                  class="d-flex flex-column align-items-between justify-content-start"
-                >
-                  <div>Queen Best Of</div>
-                  <div>Playlist</div>
+              </div>
+              <div class="install-app">
+                <div class="container">
+                  <a href="#" class="d-flex align-items-center">
+                    <div class="icon-div">
+                      <i class="bi bi-arrow-down-circle install-icon"></i>
+                    </div>
+                    <span>Install App</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="right-container">
+        <div id="navbar-container" class="sticky-top">
+          <nav
+            class="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link px-0 mr-3" href="#"
+                    ><i
+                      class="bi bi-chevron-left arrowLeftAndRight arrow-left"
+                    ></i>
+                    <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-0 disabled"
+                    ><i
+                      class="bi bi-chevron-right arrowLeftAndRight arrow-right"
+                    ></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <a
+                id="account-container"
+                class="py-3 btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div
+                  class="d-flex align-items-center overflow-hidden align-to-the-left"
+                >
+                  <span id="profile-image"
+                    ><i class="bi bi-person person-icon-account"></i
+                  ></span>
+                  <span class="pl-1 wirte-just-on-one-line"
+                    >namedsddsajdsjkdnsak</span
+                  >
+                </div>
+              </a>
 
-      <!-- <div class="row text-center">
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-        <div class="card">
-          <img
-            src="./assets/babele-bucegi.jpeg"
-            class="card-img-top"
-            alt="Bucegi Mountains"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Bucegi Mountain</h5>
-            <p class="card-text">
-              The Bucegi Mountains are bordered by Prahova Valley, 
-              an area with the most ski resorts in Romania. Since 1935,                
-              part of the Bucegi Mountains has been included in the list of 
-              protected areas in Romania, with national park status.
-            </p>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Account</a>
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div
+          id="jumbotron-container"
+          class="jumbotron-bg jumbotron jumbotron-fluid py-0 d-flex align-items-end"
+        >
+          <div class="container-fluid text-light d-flex flex-column">
+            <p><i class="bi text-primary bi-patch-check-fill"></i></p>
+            <h1 class="display-4">Artist name</h1>
+            <p class="lead">.... monthly listeners</p>
           </div>
         </div>
-      </div> -->
-      <div id="popular-releases" class="container-fluid pt-5">
-        <div>Popular Releases</div>
-        <div class="row text-center">
-          <!-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-md-auto">
-          <div class="card container relative-position">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Shawn_Mendes_and_Camila_Cabello_-_Se%C3%B1orita.png"
-              class="card-img-top mt-3"
-              alt="..."
-            />
-            <div
-              class="card-body text-light d-flex flex-column align-items-start "
-            >
-              <h5 class="card-title wirte-just-on-one-line">Song title</h5>
-              <p class="card-text">
-                <span>year</span>
-                <span>
-                  <i class="bi bi-dot"></i>
-                </span>
-                <span>Album</span>
-              </p>
+
+        <div class="music-container container-fluid">
+          <div class="row">
+            <div class="container-fluid d-flex my-3">
+              <div
+                class="pause-button mr-4 d-flex justify-content-center align-items-center"
+              >
+                <div class="d-flex">
+                  <div class="pause-button-lines mr-1"></div>
+                  <div class="pause-button-lines"></div>
+                </div>
+              </div>
+              <div class="text-light follow-button my-auto mr-4">FOLLOW</div>
+              <i class="bi bi-three-dots text-light my-auto"></i>
             </div>
           </div>
-        </div> -->
+          <div class="row">
+            <div class="col-md-9 text-light">
+              Popular
+
+              <!-- <ol>
+          <li class="d-none">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div
+                  class="song-image-li-item d-flex align-items-center justify-content-center"
+                >
+                  Image
+                </div>
+                <div class="ml-3">Song name</div>
+              </div>
+              <span>1.0438432.322</span>
+              <span>3:32</span>
+            </div>
+          </li>
+        </ol> -->
+            </div>
+            <div class="col-6 col-md-3 text-light">
+              Artist pick
+              <div class="d-flex font-size-artist-pick-section">
+                <div id="artist-pick-image"></div>
+                <div class="ml-2 d-flex flex-column justify-content-between">
+                  <div class="d-flex">
+                    <div id="image-tag-posted-by" class="mr-1"></div>
+                    <div class="d-flex align-items-center">Posted by Queen</div>
+                  </div>
+                  <div
+                    class="d-flex flex-column align-items-between justify-content-start"
+                  >
+                    <div>Queen Best Of</div>
+                    <div>Playlist</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="popular-releases" class="container-fluid pt-5">
+              <div>Popular Releases</div>
+              <div class="row text-center">
+                <!-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-md-auto">
+            <div class="card container relative-position">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Shawn_Mendes_and_Camila_Cabello_-_Se%C3%B1orita.png"
+                class="card-img-top mt-3"
+                alt="..."
+              />
+              <div
+                class="card-body text-light d-flex flex-column align-items-start "
+              >
+                <h5 class="card-title wirte-just-on-one-line">Song title</h5>
+                <p class="card-text">
+                  <span>year</span>
+                  <span>
+                    <i class="bi bi-dot"></i>
+                  </span>
+                  <span>Album</span>
+                </p>
+              </div>
+            </div>
+          </div> -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      id="footer"
-      class="container-fluid d-flex justify-content-between align-items-center sticky"
-    >
+    <div id="footer-container">
       <div
-        id="music-player-container"
-        class="d-flex justify-content-between align-items-center"
-      >
-        <div id="image-music-player" class="mr-2"></div>
-        <div class="mr-4">
-          <div>Song name</div>
-          <div>Artist name</div>
-        </div>
-        <div><i class="bi bi-heart"></i></div>
-      </div>
-      <div
-        class="d-flex flex-column justify-content-between align-items-center"
+        id="footer"
+        class="col-12 d-flex justify-content-between align-items-center sticky"
       >
         <div
-          class="d-flex justify-content-between align-items-center music-player-font-size"
+          id="music-player-container"
+          class="d-flex justify-content-between align-items-center"
         >
-          <div class="mx-2"><i class="bi bi-shuffle"></i></div>
-          <div class="mx-2"><i class="bi bi-skip-start-fill"></i></div>
-          <div
-            class="mx-2 playPauseButton playpause-track"
-            onclick="playpauseTrack()"
-          >
-            <i class="bi bi-play-circle-fill"></i>
+          <div id="image-music-player" class="mr-2"></div>
+          <div class="mr-4">
+            <div>Song name</div>
+            <div>Artist name</div>
           </div>
-          <div class="mx-2"><i class="bi bi-skip-end-fill"></i></div>
-          <div class="mx-2"><i class="bi bi-repeat"></i></div>
+          <div><i class="bi bi-heart"></i></div>
         </div>
-        <div class="slider_container d-flex">
-          <div class="current-time">00:00</div>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value="0"
-            class="seek_slider"
-            onchange="seekTo()"
-          />
-          <div class="total-duration">00:00</div>
+        <div
+          class="d-flex flex-column justify-content-between align-items-center"
+        >
+          <div
+            class="d-flex justify-content-between align-items-center music-player-font-size"
+          >
+            <div class="mx-2"><i class="bi bi-shuffle"></i></div>
+            <div class="mx-2"><i class="bi bi-skip-start-fill"></i></div>
+            <div
+              class="mx-2 playPauseButton playpause-track"
+              onclick="playpauseTrack()"
+            >
+              <i class="bi bi-play-circle-fill"></i>
+            </div>
+            <div class="mx-2"><i class="bi bi-skip-end-fill"></i></div>
+            <div class="mx-2"><i class="bi bi-repeat"></i></div>
+          </div>
+          <div class="slider_container d-flex">
+            <div class="current-time">00:00</div>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="0"
+              class="seek_slider"
+              onchange="seekTo()"
+            />
+            <div class="total-duration">00:00</div>
+          </div>
         </div>
-      </div>
-      <div class="d-flex justify-content-end music-player-font-size">
-        <div class="mx-2"><i class="bi bi-border-width"></i></div>
-        <div class="mx-2"><i class="bi bi-person-badge"></i></div>
-        <div class="mx-2"><i class="bi bi-volume-down"></i></div>
-        <div class="mx-2"><i class="bi bi-arrows-angle-expand"></i></div>
+        <div class="d-flex justify-content-end music-player-font-size">
+          <div class="mx-2"><i class="bi bi-border-width"></i></div>
+          <div class="mx-2"><i class="bi bi-person-badge"></i></div>
+          <div class="mx-2"><i class="bi bi-volume-down"></i></div>
+          <div class="mx-2"><i class="bi bi-arrows-angle-expand"></i></div>
+        </div>
       </div>
     </div>
+    <!-- <div
+        id="footer"
+        class="col-12 d-flex justify-content-between align-items-center sticky"
+      >
+        <div
+          id="music-player-container"
+          class="d-flex justify-content-between align-items-center"
+        >
+          <div id="image-music-player" class="mr-2"></div>
+          <div class="mr-4">
+            <div>Song name</div>
+            <div>Artist name</div>
+          </div>
+          <div><i class="bi bi-heart"></i></div>
+        </div>
+        <div
+          class="d-flex flex-column justify-content-between align-items-center"
+        >
+          <div
+            class="d-flex justify-content-between align-items-center music-player-font-size"
+          >
+            <div class="mx-2"><i class="bi bi-shuffle"></i></div>
+            <div class="mx-2"><i class="bi bi-skip-start-fill"></i></div>
+            <div
+              class="mx-2 playPauseButton playpause-track"
+              onclick="playpauseTrack()"
+            >
+              <i class="bi bi-play-circle-fill"></i>
+            </div>
+            <div class="mx-2"><i class="bi bi-skip-end-fill"></i></div>
+            <div class="mx-2"><i class="bi bi-repeat"></i></div>
+          </div>
+          <div class="slider_container d-flex">
+            <div class="current-time">00:00</div>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="0"
+              class="seek_slider"
+              onchange="seekTo()"
+            />
+            <div class="total-duration">00:00</div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end music-player-font-size">
+          <div class="mx-2"><i class="bi bi-border-width"></i></div>
+          <div class="mx-2"><i class="bi bi-person-badge"></i></div>
+          <div class="mx-2"><i class="bi bi-volume-down"></i></div>
+          <div class="mx-2"><i class="bi bi-arrows-angle-expand"></i></div>
+        </div>
+      </div> -->
+    <!-- </div> -->
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

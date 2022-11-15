@@ -22,6 +22,8 @@ function createSeeMoreButton(ol) {
   seeMoreButton.addEventListener("click", () => {
     if (seeMoreButton.innerText === "SEE MORE") {
       seeMoreButton.innerText = "SHOW LESS";
+    } else {
+      seeMoreButton.innerText = "SEE MORE";
     }
     seeMore();
   });
@@ -38,6 +40,7 @@ function createSequenceOfFiveSongs() {
     createLiContent(ol);
   }
   const liList = ol.querySelectorAll("li");
+
   for (let i = 5; i < liList.length; i++) {
     console.log(liList[i]);
     const currentLi = liList[i];
@@ -48,6 +51,7 @@ function createSequenceOfFiveSongs() {
 function seeMore() {
   const ol = document.querySelector(".music-container ol");
   const liList = ol.querySelectorAll("li");
+
   for (let i = 5; i < liList.length; i++) {
     // console.log(liList[i]);
     const currentLi = liList[i];
@@ -74,7 +78,7 @@ function createCardPopularReleases() {
   let container = document.querySelector("#popular-releases");
   let whereToAppend = container.querySelector("div.row");
   whereToAppend.innerHTML += `
-  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-md-auto">
+  <div class="col-sm-6 col-md-4 col-xl-2 mb-3 mx-md-auto">
           <div class="card container">
           <div class="relative-position">
             <img
@@ -106,9 +110,9 @@ function generatePopularReleasesContent() {
 }
 
 //change the color of the navbar when scrolling
-const navbar = document.querySelector("#navbar-container");
+const navbar = document.querySelector("#navbar-container nav");
 window.onscroll = () => {
-  if (window.scrollY > 325) {
+  if (window.scrollY > 100) {
     navbar.classList.add("nav-active");
   } else {
     navbar.classList.remove("nav-active");
