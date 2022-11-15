@@ -255,15 +255,6 @@ hr {
   background-color: var(--color-light-grey);
 }
 
-ol {
-  color: white;
-  padding: 0;
-}
-
-ol > li {
-  margin-bottom: 5px;
-}
-
 .songs {
   overflow: hidden;
   overflow-y: scroll;
@@ -329,4 +320,21 @@ ol > li {
   /* / margin-inline: 20px; /
   / width: 200px; */
   color: white;
+}
+
+.song_is {
+  margin-left: 18px;
+  font-size: 15px;
+}
+
+.song_artist {
+  font-size: 13px;
+}
+
+.bi-clock {
+  margin-right: 18px;
+}
+
+.col {
+  margin-bottom: 15px;
 }
