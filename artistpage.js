@@ -1,12 +1,9 @@
-function createList() {
+function createOlList() {
   createOl();
-  // const ol = document.querySelector(".music-container ol");
-  // for (let i = 0; i < 5; i++) {
-  //   createLiContent(ol);
-  // }
   createSequenceOfFiveSongs();
 }
 
+//creates an empty ol list and attaches it the container
 function createOl() {
   const placeToAppend = document.querySelectorAll(".music-container .row")[1];
   const placeToAppendOl = placeToAppend.querySelector("div:first-child");
@@ -16,6 +13,7 @@ function createOl() {
   // placeToAppendOl.appendChild(seeMoreButton);
 }
 
+//creates the "See more/Show less button" and appends it to the ol
 function createSeeMoreButton(ol) {
   const seeMoreButton = document.createElement("button");
   seeMoreButton.innerText = "SEE MORE";
@@ -34,6 +32,9 @@ function createSeeMoreButton(ol) {
   ol.appendChild(seeMoreButton);
 }
 
+//creates a sequence of 10 songs for the Popular section
+//the first 5 are displayed
+//the last 5 are not displayed, but they will be when click on "Show more" button
 function createSequenceOfFiveSongs() {
   const ol = document.querySelector(".music-container ol");
   for (let i = 0; i < 10; i++) {
@@ -48,6 +49,10 @@ function createSequenceOfFiveSongs() {
   }
 }
 
+//if the last five songs are not displayed, they will be displayed
+//if the five songs are displayed they will be not displayed
+//we use this function on "createSeeMoreButton" function
+//so we will toggle the display property on click
 function seeMore() {
   const ol = document.querySelector(".music-container ol");
   const liList = ol.querySelectorAll("li");
@@ -59,6 +64,7 @@ function seeMore() {
   }
 }
 
+//creates an li element and appends it to the ol
 function createLiContent(ol) {
   const li = document.createElement("li");
   li.innerHTML = `<div class="d-flex justify-content-between align-items-center mb-2">
@@ -74,6 +80,7 @@ function createLiContent(ol) {
   ol.appendChild(li);
 }
 
+//creates card and appends it to the "Popular releases container"
 function createCardPopularReleases() {
   let container = document.querySelector("#popular-releases");
   let whereToAppend = container.querySelector("div.row");
@@ -105,14 +112,36 @@ function createCardPopularReleases() {
   `;
 }
 
+//generates the cards on "Popular releases" section
+//By calling the createCardPopularReleases function
+//and adds the d-none and d-block class regarding the size of the page
 function generatePopularReleasesContent() {
   for (let i = 0; i < 6; i++) createCardPopularReleases();
+  const cardsList = document.querySelectorAll(
+    "#popular-releases div.row > div"
+  );
+  for (let i = 0; i < cardsList.length; i++) {
+    if (i === 0) cardsList[i].classList.add("d-block");
+    else if (i === 1) {
+      cardsList[i].classList.add("d-none");
+      cardsList[i].classList.add("d-sm-block");
+    } else if (i === 2) {
+      cardsList[i].classList.add("d-none");
+      cardsList[i].classList.add("d-md-block");
+    } else if (i === 3 || i === 4) {
+      cardsList[i].classList.add("d-none");
+      cardsList[i].classList.add("d-lg-block");
+    } else if (i === 5) {
+      cardsList[i].classList.add("d-none");
+      cardsList[i].classList.add("d-xl-block");
+    }
+  }
 }
 
 //change the color of the navbar when scrolling
-const navbar = document.querySelector("#navbar-container nav");
+const navbar = document.querySelector("#navbar-container");
 window.onscroll = () => {
-  if (window.scrollY > 100) {
+  if (window.scrollY > 300) {
     navbar.classList.add("nav-active");
   } else {
     navbar.classList.remove("nav-active");
@@ -120,6 +149,6 @@ window.onscroll = () => {
 };
 
 window.onload = () => {
-  createList();
+  createOlList();
   generatePopularReleasesContent();
 };
