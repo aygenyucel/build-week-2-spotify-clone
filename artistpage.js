@@ -85,7 +85,7 @@ function createCardPopularReleases() {
   let container = document.querySelector("#popular-releases");
   let whereToAppend = container.querySelector("div.row");
   whereToAppend.innerHTML += `
-  <div class="col-sm-6 col-md-4 col-xl-2 mb-3 mx-md-auto">
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-md-auto">
           <div class="card container">
           <div class="relative-position">
             <img
@@ -128,9 +128,12 @@ function generatePopularReleasesContent() {
     } else if (i === 2) {
       cardsList[i].classList.add("d-none");
       cardsList[i].classList.add("d-md-block");
-    } else if (i === 3 || i === 4) {
+    } else if (i === 3) {
       cardsList[i].classList.add("d-none");
       cardsList[i].classList.add("d-lg-block");
+    } else if (i === 4) {
+      cardsList[i].classList.add("d-none");
+      cardsList[i].classList.add("d-xl-block");
     } else if (i === 5) {
       cardsList[i].classList.add("d-none");
       cardsList[i].classList.add("d-xl-block");
@@ -141,14 +144,25 @@ function generatePopularReleasesContent() {
 //change the color of the navbar when scrolling
 const navbar = document.querySelector("#navbar-container");
 window.onscroll = () => {
-  if (window.scrollY > 300) {
+  if (window.scrollY > 50) {
     navbar.classList.add("nav-active");
   } else {
     navbar.classList.remove("nav-active");
   }
 };
 
+const url =
+  "https://striveschool-api.herokuapp.com/api/deezer/search?q=metallica";
+
+async function fetch() {
+  const response = await fetch(url, { method: "GET" });
+  const result = await response.json();
+  console.log(result);
+  return result;
+}
+
 window.onload = () => {
+  // fetch();
   createOlList();
   generatePopularReleasesContent();
 };
