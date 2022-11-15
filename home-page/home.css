@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+:root {
+  --font-main: "Montserrat", sans-serif;
+  --color-gray: #a5a5a5;
+  --color-white: white;
+  --font-main: "Montserrat", sans-serif;
+  --color-dark-gray: #7e7e7e;
+  --color-darker-gray: #484848;
+}
+.home-page {
+  font-family: var(--font-main);
+  display: flex;
+}
+.header {
+  background-color: rgba(72, 72, 72, 0.5);
+  height: 90px;
+}
+
+.heading-primary {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.heading-content {
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  width: 600;
+}
+
+.main {
+  padding-inline: 10px;
+  color: var(--color-white);
+  width: 100%;
+  height: calc(100vh - 90px);
+  overflow: auto;
+  background: rgb(82, 6, 3);
+  background: linear-gradient(
+    180deg,
+    rgba(82, 6, 3, 1) 0%,
+    rgba(18, 18, 18, 1) 35%
+  );
+}
+
+.good-morning-card {
+  background-color: aquamarine;
+  height: 100px;
+  margin-block: 5px;
+}
+
+.recently-played-card {
+  background-color: aquamarine;
+  height: 100px;
+  margin-block: 5px;
+}
+
+.shows-to-try-card {
+  background-color: aquamarine;
+  height: 100px;
+  margin-block: 5px;
+}
+
+.footer {
+  background-color: gray;
+  height: 90px;
+}
