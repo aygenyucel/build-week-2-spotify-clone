@@ -52,6 +52,16 @@
   padding-bottom: 30px;
 }
 
+.song-card-vertical .artist-link:hover .artist-name {
+  color: white;
+}
+
+.card-link,
+.artist-name {
+  text-decoration: none !important;
+  color: white;
+}
+
 .recently-played-section-row,
 .shows-to-try-section-row {
   overflow-y: hidden;
@@ -70,11 +80,11 @@
   align-items: center;
   border-radius: 5px;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .song-card-vertical-img,
 .artist-card-vertical-img {
-  width: 150px;
   height: 150px;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
   object-fit: cover;
@@ -114,6 +124,7 @@
   border-radius: 5px;
   min-width: 200px;
   transition: background-color 0.3s;
+  color: white;
 }
 
 .album-card-horizontal-img {
