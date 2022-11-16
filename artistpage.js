@@ -86,11 +86,11 @@ function createCardPopularReleases() {
   let whereToAppend = container.querySelector("div.row");
   whereToAppend.innerHTML += `
   <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-md-auto">
-          <div class="card container">
+          <div class="card container song-card-vertical">
           <div class="relative-position">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Shawn_Mendes_and_Camila_Cabello_-_Se%C3%B1orita.png"
-              class="card-img-top mt-3"
+              class="card-img-top mt-3 song-card-vertical-img song-img"
               alt="..."
             />
             <div><i class="bi bi-play-circle-fill play-button-on-card"></i></div>
@@ -151,18 +151,27 @@ window.onscroll = () => {
   }
 };
 
+// const customUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${albumName}`;
+
+// const albumArray = ["metallica", "queen", "rihanna", "beyonce", ""];
+
 const url =
   "https://striveschool-api.herokuapp.com/api/deezer/search?q=metallica";
 
-async function fetch() {
+async function fetchDataFunction() {
+  //this returns a promise
   const response = await fetch(url, { method: "GET" });
+  console.log(response);
+  //this returns an object
   const result = await response.json();
   console.log(result);
-  return result;
+  //with the result.data you have access to the array itself
+  console.log(result.data);
+  return result.data;
 }
 
 window.onload = () => {
-  // fetch();
+  fetchDataFunction();
   createOlList();
   generatePopularReleasesContent();
 };

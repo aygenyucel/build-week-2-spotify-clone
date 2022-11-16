@@ -1,5 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+:root {
+  --font-main: "Montserrat", sans-serif;
+  --color-gray: #a5a5a5;
+  --color-white: white;
+  --font-main: "Montserrat", sans-serif;
+  --color-dark-gray: #7e7e7e;
+  --color-darker-gray: #484848;
+  --color-linear-like: linear-gradient(135deg, #450af5, #c4efd9);
+  --bg-transparent-lighter: rgba(117, 115, 115, 0.5);
+  --bg-transparent-light: rgba(72, 72, 72, 0.5);
+  --bg-transparent-dark: rgba(24, 24, 24, 0.8);
+  --color-green: #1fb750;
+}
+
 body {
   height: 100vh;
+  background-color: black;
 }
 
 .jumbotron-bg {
@@ -35,13 +51,13 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #1fb750;
+  background-color: var(--color-green);
 }
 
 .pause-button-lines {
   height: 20px;
   width: 5px;
-  background-color: white;
+  background-color: var(--color-white);
 }
 
 .see-more {
@@ -49,9 +65,8 @@ body {
 }
 
 #profile-tag {
-  /* background-color: red; */
   background-color: #170708;
-  color: white;
+  color: var(--color-white);
   border-radius: 100px;
   display: block;
   width: 150px;
@@ -158,7 +173,7 @@ body {
 }
 
 .arrow-left {
-  color: white;
+  color: var(--color-white);
 }
 
 .arrow-right {
@@ -183,7 +198,7 @@ body {
 .card {
   background-color: #1a1919;
   height: 300px;
-  transition: background-color 0s;
+  transition: background-color 0.3s;
 }
 
 .card img {
@@ -204,13 +219,26 @@ body {
   color: #1fb750;
   font-size: 50px;
   position: absolute;
-  right: 0;
+  right: 10px;
   bottom: 0;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  transform: translateY(10px);
+  transition: transform 0.5s;
+  /* margin-right: 5px;
+  margin-bottom: 5px; */
 }
+
+.play-button-on-card:hover {
+  font-size: 3rem;
+}
+
+/* .song-card-vertical:hover .play-button-on-card {
+  transform: translateY(0px);
+  visibility: visible;
+} */
+
 .card:hover .play-button-on-card {
   visibility: visible;
+  transform: translateY(0px);
 }
 
 .card:hover {
@@ -236,12 +264,11 @@ body {
 
 #footer {
   background-color: #191919;
-  color: white;
+  color: var(--color-white);
   /* position: fixed; */
   left: 0;
   bottom: 0;
   width: 100%;
-  color: white;
   text-align: center;
   /* #191919 */
 }
@@ -293,22 +320,10 @@ body {
   font-size: 20px;
   /* margin-inline: 20px; */
   /* width: 200px; */
-  color: white;
+  color: var(--color-white);
 }
 
-body {
-  background-color: black;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
-:root {
-  --color-gray: #a5a5a5;
-  --color-white: #ebebeb;
-  --font-main: "Montserrat", sans-serif;
-  --color-dark-gray: #7e7e7e;
-  --color-darker-gray: #484848;
-  --color-linear: linear-gradient(135deg, #450af5, #c4efd9);
-}
+/*--------Aygen css for the lateral navbar---------*/
 
 .custom-navbar {
   position: relative;
@@ -334,7 +349,7 @@ body {
 
 .active-link > .link-text,
 .active-link > .icon-div {
-  color: white;
+  color: var(--color-white);
 }
 
 .custom-navbar .icon-div {
