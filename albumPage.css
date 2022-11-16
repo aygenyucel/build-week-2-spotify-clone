@@ -134,6 +134,7 @@
 
 .song_list {
   width: 100%;
+  height: calc(100vh - 90px);
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
@@ -141,6 +142,8 @@
     rgba(186, 51, 148, 1) 79%
   );
   color: white;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .buttons {
@@ -159,7 +162,12 @@
   border: 0px;
   border-radius: 50%;
   background-color: #252525;
+  opacity: 0.6;
   color: white;
+}
+
+.buttons button:hover {
+  opacity: 1;
 }
 
 .btn {
@@ -255,12 +263,6 @@ hr {
   background-color: var(--color-light-grey);
 }
 
-.songs {
-  overflow: hidden;
-  overflow-y: scroll;
-  max-height: 200px;
-}
-
 #footer {
   background-color: #191919;
   color: white;
@@ -331,10 +333,10 @@ hr {
   font-size: 13px;
 }
 
-.bi-clock {
-  margin-right: 18px;
-}
-
 .col {
   margin-bottom: 15px;
+}
+
+.account {
+  background-color: #252525;
 }
