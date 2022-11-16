@@ -105,7 +105,19 @@ body {
   height: 50px;
   width: 50px;
   background-color: green;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("");
+  /* overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; */
+
+  /* width: 100px; */
 }
+
+/* .song-name {
+  width: 150px;
+} */
 
 #dropdown-button {
   width: auto;
@@ -115,7 +127,10 @@ body {
 #artist-pick-image {
   height: 70px;
   width: 70px;
-  background-color: blue;
+  background-image: url("https://spotmedia.ro/wp-content/uploads/2020/10/Queen-770x465.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: blue; */
 }
 
 #image-tag-posted-by {
@@ -200,6 +215,14 @@ body {
   height: 300px;
   transition: background-color 0.3s;
 }
+
+/* .card-title { */
+/* padding-block: 10px; */
+/* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px; */
+/* } */
 
 .card img {
   height: 150px;

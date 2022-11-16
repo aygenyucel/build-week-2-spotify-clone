@@ -1,3 +1,12 @@
+function goBackToHomePage() {
+  const goBackButton = document.querySelector(
+    ".right-container ul li:first-child a"
+  );
+  goBackButton.addEventListener("click", () => {
+    goBackButton.href = "./homePage.html";
+  });
+}
+
 function createOlList() {
   createOl();
   createSequenceOfFiveSongs();
@@ -43,7 +52,7 @@ function createSequenceOfFiveSongs() {
   const liList = ol.querySelectorAll("li");
 
   for (let i = 5; i < liList.length; i++) {
-    console.log(liList[i]);
+    // console.log(liList[i]);
     const currentLi = liList[i];
     currentLi.classList.add("d-none");
   }
@@ -72,10 +81,10 @@ function createLiContent(ol) {
                       <div class="song-image-li-item d-flex align-items-center justify-content-center">
                       Image
                       </div>
-                    <div class="ml-3">Song name</div>
+                    <div class="ml-3 song-name">Song name</div>
                   </div>
-                  <span>1.0438432.322</span>
-                  <span>3:32</span>
+                  <span class="rank">1.0438432.322</span>
+                  <span class="duration">3:32</span>
                   </div>`;
   ol.appendChild(li);
 }
@@ -100,11 +109,11 @@ function createCardPopularReleases() {
             >
               <h5 class="card-title wirte-just-on-one-line">Song title</h5>
               <p class="card-text">
-                <span>year</span>
+                <span>2022</span>
                 <span>
                   <i class="bi bi-dot"></i>
                 </span>
-                <span>Album</span>
+                <span class="album-card-body">Album</span>
               </p>
             </div>
           </div>
@@ -153,10 +162,14 @@ window.onscroll = () => {
 
 // const customUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${albumName}`;
 
-// const albumArray = ["metallica", "queen", "rihanna", "beyonce", ""];
+const params = new URLSearchParams(window.location.search);
+console.log(params);
+const artistId = params.get("artistId");
+const artistName = params.get("artistName");
+console.log(artistId);
+console.log(artistName);
 
-const url =
-  "https://striveschool-api.herokuapp.com/api/deezer/search?q=metallica";
+const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
 
 async function fetchDataFunction() {
   //this returns a promise
@@ -166,12 +179,144 @@ async function fetchDataFunction() {
   const result = await response.json();
   console.log(result);
   //with the result.data you have access to the array itself
+  // console.log(result.data);
+  return result;
+}
+
+async function fetchForArtistPageSongsList(url) {
+  const response = await fetch(url, { method: "GET" });
+  const result = await response.json();
   console.log(result.data);
   return result.data;
 }
 
+// function generateListOfSongsWithApiData(obj, currentLi) {
+//   const liImage = currentLi.querySelector("div.song-image-li-item");
+//   const rankLi = currentLi.querySelector("span.rank");
+//   const fetchedRank = obj.rank;
+//   rankLi.innerText = fetchedRank;
+//   const songDurationLi = currentLi.querySelector("span.duration");
+//   const duration = obj.duration;
+//   const minutes = duration / 60;
+//   const seconds = duration % 60;
+//   if (seconds < 10) {
+//     seconds = `0${seconds}`;
+//   }
+//   songDurationLi.innerText = `${minutes}:${seconds}`;
+//   const songImageLi = obj.md5_image;
+//   liImage.style.backgroundImage = `url(${songImageLi});`;
+//   const contributors = obj.contributors;
+//   const songNameLi = obj.title_short;
+//   const audioPlayerSrc = obj.preview;
+// }
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+async function displayCurrentArtistDataOnPage() {
+  const currentArtistResult = await fetchDataFunction();
+  console.log("our obj", currentArtistResult);
+  const jumbotronImage = currentArtistResult.picture_big;
+  const artistPickImage = currentArtistResult.picture_medium;
+  const postedByImage = currentArtistResult.picture_small;
+  const name = currentArtistResult.name;
+  const artistName = document.querySelector("h1#artist-name");
+  artistName.innerText = name;
+  const artistPick = document.querySelector("#artist-pick-image");
+  artistPick.style.backgroundImage = `url(${artistPickImage})`;
+  const postedBy = document.querySelector("#image-tag-posted-by");
+  postedBy.style.backgroundImage = `url(${postedByImage})`;
+  const postedByArtistName = postedBy.nextElementSibling;
+  postedByArtistName.innerText = `Posted by ${name}`;
+  const bestOf = document.querySelector("#best-of");
+  bestOf.innerText = `${name} Best Of`;
+  const jumbotron = document.querySelector("#jumbotron-container");
+  jumbotron.style.backgroundImage = `url(${jumbotronImage})`;
+  const monthlyListeners = document.querySelector("#monthly-listeners");
+  const listeners = currentArtistResult.nb_fan;
+  monthlyListeners.innerText = `${listeners} monthly listeners`;
+  const urlTrackList = currentArtistResult.tracklist;
+
+  console.log(urlTrackList);
+  // const url = urlTrackList;
+  const trackList = await fetchForArtistPageSongsList(urlTrackList);
+  const multipleTracksUrl = trackList[0].artist.tracklist;
+
+  const contributorsKeyOfTracklist = trackList.contributors;
+  console.log("Tracklist", trackList);
+  const liList = document.querySelectorAll("ol li");
+  let index = 0;
+  for (let i = 0; i < liList.length; i++) {
+    let currentTracklist = trackList[index];
+    if (index === trackList.length) {
+      console.log(trackList.length);
+      index = 0;
+      currentTracklist = trackList[index];
+    }
+    // console.log("currentLi", liList[i]);
+    // const currentTracklist = trackList[index];
+    console.log("currentTracklist", currentTracklist);
+    const currentLi = liList[i];
+    let songName = currentLi.querySelector(".song-name");
+    songName.innerText = currentTracklist.title_short;
+
+    // generateListOfSongsWithApiData(currentTracklist, liList[i]);
+    const liImage = currentLi.querySelector("div.song-image-li-item");
+    const songImageLi = currentTracklist.album.cover_medium;
+    // console.log("image", songImageLi);
+    liImage.style.backgroundImage = `url(${songImageLi})`;
+
+    const rankLi = currentLi.querySelector("span.rank");
+    const fetchedRank = currentTracklist.rank;
+    rankLi.innerText = fetchedRank;
+    const songDurationLi = currentLi.querySelector("span.duration");
+    const duration = currentTracklist.duration;
+    const minutes = Math.floor(duration / 60);
+    let seconds = duration % 60;
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+    songDurationLi.innerText = `${minutes}:${seconds}`;
+    index++;
+  }
+
+  const popularReleasesList = document.querySelectorAll(
+    "#popular-releases div.row > div"
+  );
+
+  index = 0;
+  for (let i = 0; i < popularReleasesList.length; i++) {
+    let currentTracklist = trackList[index];
+    if (index === trackList.length) {
+      console.log(trackList.length);
+      index = 0;
+      currentTracklist = trackList[index];
+    }
+    const imageCard = popularReleasesList[i].querySelector("img");
+    const fetchedImage = currentTracklist.album.cover_big;
+    imageCard.src = fetchedImage;
+    const cardTitle = popularReleasesList[i].querySelector(".card-title");
+    const fetchedTitle = currentTracklist.title_short;
+    cardTitle.innerText = fetchedTitle;
+    const albumNameCardBody =
+      popularReleasesList[i].querySelector(".album-card-body");
+    const fetchedAlbumName = currentTracklist.album.title;
+    index++;
+    albumNameCardBody.innerText = fetchedAlbumName;
+  }
+
+  // let index = 0;
+  // liList.forEach((li) => {
+  // const currentTracklist = trackList[index];
+  // generateListOfSongsWithApiData(currentTracklist, li);
+  // index++;
+  // });
+}
+
 window.onload = () => {
+  goBackToHomePage();
   fetchDataFunction();
   createOlList();
   generatePopularReleasesContent();
+  displayCurrentArtistDataOnPage();
 };
