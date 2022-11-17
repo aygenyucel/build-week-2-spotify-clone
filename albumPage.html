@@ -16,18 +16,20 @@
     />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="albumPage.css" />
-    <title>Navbar</title>
+    <title>Album Page</title>
   </head>
   <body>
-    <div class="main d-flex">
+    <div class="main d-flex home-page">
       <div class="custom-navbar">
         <div class="navbar-logo">
           <div class="container">
-            <img
-              src="./spotify-logo.png"
-              class="navbar-logo"
-              alt="spotify logo"
-            />
+            <a href="homePage.html">
+              <img
+                src="./spotify-logo.png"
+                class="navbar-logo"
+                alt="spotify logo"
+              />
+            </a>
           </div>
         </div>
         <div class="navbar-top">
@@ -36,11 +38,14 @@
               <div class="col-12">
                 <div class="primary-options navbar-nav d-flex flex-column">
                   <div class="home">
-                    <a href="./homePage.html" class="d-flex align-items-center">
+                    <a
+                      href="./homePage.html"
+                      class="d-flex align-items-center"
+                    >
                       <div class="icon-div">
                         <i class="bi bi-house-door-fill home-icon"></i>
                       </div>
-                      <span>Home</span>
+                      <span class="link-text">Home</span>
                     </a>
                   </div>
                   <div class="search">
@@ -48,15 +53,15 @@
                       <div class="icon-div">
                         <i class="bi bi-search search-icon"></i>
                       </div>
-                      <span>Search</span>
+                      <span class="link-text">Search</span>
                     </a>
                   </div>
                   <div class="your-library">
                     <a href="#" class="d-flex align-items-center">
                       <div class="icon-div">
-                        <i class="bi bi-collection-fill library-icon"></i>
+                        <i class="bi bi-collection library-icon"></i>
                       </div>
-                      <span>Your Library</span>
+                      <span class="link-text">Your Library</span>
                     </a>
                   </div>
                 </div>
@@ -65,7 +70,9 @@
                 <div class="secondary-options">
                   <div class="create-playlist">
                     <a href="#" class="d-flex align-items-center">
-                      <div class="icon-div create-playlist-icon">
+                      <div
+                        class="icon-div create-playlist-icon d-flex align-items-center justify-content-center"
+                      >
                         <i class="bi bi-plus-lg"></i>
                       </div>
                       <span>Create Playlist</span>
@@ -93,18 +100,16 @@
               <li class="navbar-playlist-item">Funky Heavy Bluesy</li>
               <li class="navbar-playlist-item">Your Top Songs 2020</li>
               <li class="navbar-playlist-item">
-                In Love With You - Erykah bjksdfhs
+                In Love With You - Erykah lorem ipsum
               </li>
               <li class="navbar-playlist-item">This Is Rod Stewart</li>
-              <li class="navbar-playlist-item">
-                FRANCHISE ft. Young Thugsjkfh
-              </li>
+              <li class="navbar-playlist-item">FRANCHISE ft. Young</li>
               <li class="navbar-playlist-item">Your Top Songs 2019</li>
               <li class="navbar-playlist-item">Palleggio</li>
               <li class="navbar-playlist-item">This Is Joe Bonamassa</li>
               <li class="navbar-playlist-item">Jun19</li>
               <li class="navbar-playlist-item collaborative-playlist-item">
-                Jack 30th Party 2 Lorem, ipsum.lorem3
+                Jack 30th Party 2 Lorem, ipsum
                 <span class="collaborative-icon"
                   ><i class="bi bi-people"></i
                 ></span>

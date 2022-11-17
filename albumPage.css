@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 :root {
-  --color-gray: #b8b8b8;
+  --color-gray: #a5a5a5;
+  --color-white: #ebebeb;
   --font-main: "Montserrat", sans-serif;
   --color-dark-gray: #7e7e7e;
   --color-darker-gray: #484848;
-  --color-light-grey: #d3d3d3;
+  --color-linear: linear-gradient(135deg, #450af5, #c4efd9);
 }
 
 .custom-navbar {
@@ -25,6 +26,11 @@
   width: 135px;
   height: auto;
   object-fit: cover;
+}
+
+.active-link > .link-text,
+.active-link > .icon-div {
+  color: white;
 }
 
 .custom-navbar .icon-div {
@@ -58,13 +64,11 @@
 }
 
 .custom-navbar .navbar-top .secondary-options .liked-songs-icon {
-  background: rgb(60, 29, 160);
-  background: linear-gradient(
-    159deg,
-    rgba(60, 29, 160, 1) 0%,
-    rgba(130, 156, 155, 1) 91%
-  );
+  background: var(--color-linear);
   border-radius: 2px;
+  /* filter: brightness(30%); */
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s ease-out;
 }
 
 .divider {
@@ -78,6 +82,7 @@
   width: 100%;
   overflow-y: auto;
   max-height: calc(100% - 338px);
+  font-size: 0.8rem;
 }
 .custom-navbar .navbar-bottom .navbar-playlist {
   list-style: none;
@@ -89,6 +94,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
+  cursor: default;
 }
 
 .navbar-bottom::-webkit-scrollbar {
@@ -125,11 +131,53 @@
   background-color: black;
   z-index: 999;
   padding-inline: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .install-app a {
   text-decoration: none;
   color: var(--color-gray);
+  transition: color 0.4s ease-out;
+}
+
+.link-text,
+.custom-navbar .navbar-top .secondary-options > div > a {
+  transition: color 0.4s ease-out;
+}
+
+.create-playlist-icon {
+  transition: background-color 0.4s ease-out;
+}
+
+.custom-navbar .navbar-bottom .navbar-playlist .navbar-playlist-item:hover,
+.custom-navbar .navbar-top .primary-options div > a:hover .link-text,
+.custom-navbar .navbar-top .secondary-options > div > a:hover,
+.custom-navbar .install-app > div:hover {
+  color: white;
+}
+
+.custom-navbar
+  .navbar-top
+  .secondary-options
+  .create-playlist
+  > a:hover
+  .create-playlist-icon {
+  background-color: white;
+}
+
+.custom-navbar
+  .navbar-top
+  .secondary-options
+  .liked-songs
+  > a:hover
+  .liked-songs-icon {
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0);
+}
+
+.install-app a:hover {
+  color: white;
 }
 
 .song_list {
