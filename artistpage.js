@@ -108,13 +108,13 @@ function createCardPopularReleases() {
               class="card-body text-light d-flex flex-column align-items-start"
             >
               <h5 class="card-title wirte-just-on-one-line">Song title</h5>
-              <p class="card-text">
+              <div class="card-text">
                 <span>2022</span>
                 <span>
                   <i class="bi bi-dot"></i>
                 </span>
                 <span class="album-card-body">Album</span>
-              </p>
+              </div>
             </div>
           </div>
         </div>
