@@ -67,7 +67,7 @@
   background: var(--color-linear);
   border-radius: 2px;
   /* filter: brightness(30%); */
-  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 0px 400px 110px rgb(0, 0, 0, 0.4);
   transition: box-shadow 0.4s ease-out;
 }
 
@@ -209,8 +209,7 @@
   aspect-ratio: 1/1;
   border: 0px;
   border-radius: 50%;
-  background-color: #252525;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
 }
 
@@ -262,8 +261,7 @@
 
 .playlist {
   height: 100%;
-  background-color: black;
-  opacity: 0.5;
+  background-color: rgb(0, 0, 0, 0.5);
   padding-inline: 30px;
 }
 
@@ -308,7 +306,7 @@
 }
 
 hr {
-  background-color: var(--color-light-grey);
+  background-color: lightgray;
 }
 
 #footer {
@@ -395,4 +393,98 @@ hr {
   background-color: white;
   border-radius: 50%;
   margin-inline: 5px;
+}
+
+.play_button:hover {
+  width: 52px;
+  aspect-ratio: 1/1;
+  padding-top: -2px;
+  margin-bottom: -2px;
+  margin-right: 28px;
+}
+
+.playlist i {
+  color: lightgray;
+}
+
+.playlist i:hover {
+  color: white;
+}
+
+.play_button i:first-of-type {
+  color: black;
+}
+
+.col:hover {
+  background-color: rgb(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+
+.col:hover + .display_none {
+  display: inline;
+}
+
+span.ml-auto {
+  margin-right: 50px;
+}
+
+.track_num {
+  position: relative;
+}
+
+i.display_none {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.col:hover i.display_none {
+  display: block;
+}
+
+.col:hover .number {
+  display: none;
+}
+.col:hover .song_is {
+  padding-left: 8px;
+}
+
+.bi-clock {
+  margin-right: 50px;
+}
+
+.margin_span {
+  margin-left: auto;
+  margin-right: 48px;
+}
+
+i.track_dots {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+i.track_dots,
+i.track_heart {
+  font-size: 16px;
+  display: none;
+}
+
+.col:hover i.track_heart {
+  display: block;
+}
+
+.col:hover i.track_dots {
+  display: block;
+  margin-left: -15px;
+}
+
+.col:hover span.margin_span {
+  margin-left: 0;
+}
+
+.artist_name:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

@@ -45,19 +45,19 @@ function displayAlbum(data) {
 
     albumDuration += track.duration;
 
-    songsElement.innerHTML += `<div class="col d-flex">
-                                        <span class="track_num align-self-center">${
-                                          index + 1
-                                        }</span>
-                                        <div class="song_is">
-                                        <span class="song_name">${
-                                          track.title_short
-                                        }</span>
-                                        <div class="song_artist">
-                                        ${data.artist.name}</div>
-                                        </div>
-                                        <span class="ml-auto">${trackDuration}</span>
-                                    </div>`;
+    songsElement.innerHTML += `<div class="col d-flex align-items-center">
+    <span class="track_num align-self-center">
+      <span class="number">${index + 1}</span>
+      <i class="display_none fa-solid fa-play"></i>
+    </span>
+    <div class="song_is">
+      <span class="song_name">${track.title_short}</span>
+      <div class="song_artist">${data.artist.name}</div>
+    </div>
+    <i class="bi bi-heart ml-auto track_heart"></i>
+    <span class="margin_span">${trackDuration}</span>
+    <i class="fa-solid fa-ellipsis track_dots"></i>
+  </div>`;
   });
 
   let albumMinutes = Math.floor(albumDuration / 60);
