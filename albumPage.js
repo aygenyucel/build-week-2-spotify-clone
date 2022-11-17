@@ -65,7 +65,7 @@ function displayAlbum(data) {
 
   let albumYear = data.release_date.substr(0, 4);
 
-  console.log("data:", data);
+  //   console.log("data:", data);
 
   const albumCoverElement = document.querySelector(".album_cover");
   albumCoverElement.innerHTML = `<img src="${data.cover_big}" alt="..." />
