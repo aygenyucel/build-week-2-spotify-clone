@@ -57,15 +57,26 @@ body {
 
 .pause-button {
   width: 50px;
-  height: 50px;
+  font-size: 50px;
+  /* height: 50px; */
   border-radius: 50%;
-  background-color: var(--color-green);
+  color: var(--color-green);
   transition: background-color 0.5s;
 }
 
 .pause-button:hover {
   cursor: pointer;
-  background-color: #3ddf72;
+  color: #3ddf72;
+}
+
+.shuffleXsScreens {
+  color: var(--color-white);
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.shuffleXsScreens:hover {
+  color: rgba(213, 207, 207, 0.369);
 }
 
 .make-it-green {
@@ -127,7 +138,10 @@ body {
 }
 
 .song-name {
-  width: 80%;
+  width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .song-name:hover {
@@ -165,6 +179,7 @@ body {
 
 .font-size-artist-pick-section {
   font-size: 10px;
+  transform: translateY(18px);
 }
 
 #account-container {
@@ -230,6 +245,28 @@ body {
 .center-image {
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.rank {
+  display: inline-block;
+  width: 20%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.liSongAndImageContainer {
+  width: 40%;
+}
+
+.playButtonXsScreens {
+  font-size: 50px;
+  color: var(--color-green);
+  transition: color 0.5s;
+}
+.playButtonXsScreens:hover {
+  cursor: pointer;
+  color: #3ddf72;
 }
 
 #popular-releases {
@@ -397,9 +434,12 @@ span.album-card-body {
 
 #volume-slider {
   margin-block: auto;
-  width: 100%;
   width: 80%;
   height: 3px;
+}
+
+#controls-above-audio-player {
+  margin-left: 60px;
 }
 
 #controls-above-audio-player i,
@@ -442,6 +482,32 @@ span.album-card-body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.iconJustOnXsScreen {
+  font-size: 25px;
+  margin-block: auto;
+}
+
+.footerOnXsScreens {
+  height: 90px;
+  color: white;
+  transition: color 0.3s;
+  background-color: #1919198b;
+}
+
+.footerOnXsScreens i:hover {
+  color: #484848;
+}
+
+ol li > div {
+  transform: translateY(40%);
+}
+
+@media screen and (max-width: 575px) {
+  .right-container {
+    height: calc(100vh - 180px);
+  }
 }
 
 /*--------Aygen css for the lateral navbar---------*/
