@@ -508,6 +508,10 @@ ol li > div {
   .right-container {
     height: calc(100vh - 180px);
   }
+
+  #artist-pick-image {
+    border-radius: 50%;
+  }
 }
 
 /*--------Aygen css for the lateral navbar---------*/
