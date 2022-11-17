@@ -1,3 +1,8 @@
+const followButton = document.querySelector(".follow-button");
+followButton.addEventListener("click", () => {
+  followButton.classList.toggle("make-it-green");
+});
+
 function goBackToHomePage() {
   const goBackButton = document.querySelector(
     ".right-container ul li:first-child a"
@@ -16,7 +21,7 @@ function createOlList() {
 function createOl() {
   const placeToAppend = document.querySelectorAll(".music-container .row")[1];
   const placeToAppendOl = placeToAppend.querySelector("div:first-child");
-  placeToAppendOl.innerHTML += `<ol></ol>`;
+  placeToAppendOl.innerHTML += `<ol class="list-styling"></ol>`;
 
   createSeeMoreButton(placeToAppendOl);
   // placeToAppendOl.appendChild(seeMoreButton);
@@ -87,6 +92,23 @@ function createLiContent(ol) {
                   <span class="duration">3:32</span>
                   </div>`;
   ol.appendChild(li);
+
+  let index = 0;
+  const songNamesList = document.querySelectorAll(".song-name");
+  for (let i = 0; i < songNamesList.length; i++) {
+    let clicked = 0;
+
+    songNamesList[i].addEventListener("click", () => {
+      if (index != 0) {
+        songNamesList[i].style.color = "#1fb750";
+        songNamesList[index - 1].style.color = "white";
+      } else {
+        songNamesList[i].style.color = "#1fb750";
+      }
+      index = i + 1;
+      clicked = 1;
+    });
+  }
 }
 
 //creates card and appends it to the "Popular releases container"
@@ -108,8 +130,8 @@ function createCardPopularReleases() {
               class="card-body text-light d-flex flex-column align-items-start"
             >
               <h5 class="card-title wirte-just-on-one-line">Song title</h5>
-              <div class="card-text">
-                <span>2022</span>
+              <div class="card-text pt-1">
+                <span class="d-flex justify-content-start">2022</span>
                 <span>
                   <i class="bi bi-dot"></i>
                 </span>
@@ -220,13 +242,15 @@ async function displayCurrentArtistDataOnPage() {
   const artistPickImage = currentArtistResult.picture_medium;
   const postedByImage = currentArtistResult.picture_small;
   const name = currentArtistResult.name;
+  const footerImage = document.querySelector("#image-music-player");
+  footerImage.style.backgroundImage = `url(${artistPickImage})`;
   const artistName = document.querySelector("h1#artist-name");
   artistName.innerText = name;
   const artistPick = document.querySelector("#artist-pick-image");
   artistPick.style.backgroundImage = `url(${artistPickImage})`;
-  const postedBy = document.querySelector("#image-tag-posted-by");
-  postedBy.style.backgroundImage = `url(${postedByImage})`;
-  const postedByArtistName = postedBy.nextElementSibling;
+  const postedBy = document.querySelector("#image-tag-posted-by img");
+  postedBy.src = `${postedByImage}`;
+  const postedByArtistName = document.querySelector("#posted-by");
   postedByArtistName.innerText = `Posted by ${name}`;
   const bestOf = document.querySelector("#best-of");
   bestOf.innerText = `${name} Best Of`;
@@ -259,6 +283,33 @@ async function displayCurrentArtistDataOnPage() {
     const currentLi = liList[i];
     let songName = currentLi.querySelector(".song-name");
     songName.innerText = currentTracklist.title_short;
+    const artistSongContainer = document.querySelector(
+      "#artist-and-song-footer"
+    );
+    const nameAndSong = artistSongContainer.querySelectorAll("div");
+    nameAndSong[0].innerText = "-";
+    const h1 = document.querySelector("h1");
+    nameAndSong[1].innerText = h1.innerText;
+
+    songName.addEventListener("click", () => {
+      console.log(songName.innerText);
+      // songName.style.color = "red";
+      const audioTag = document.querySelector("#audio-tag");
+      audioTag.src = currentTracklist.preview;
+      const playerPlayButton = document.querySelector(".playPauseButton");
+      playerPlayButton.innerHTML = `<i id="play-icon" class="bi bi-play-circle-fill"></i>`;
+      playState = "play";
+      const artistSongContainer = document.querySelector(
+        "#artist-and-song-footer"
+      );
+      const nameAndSong = artistSongContainer.querySelectorAll("div");
+      nameAndSong[0].innerText = songName.innerText;
+      const h1 = document.querySelector("h1");
+      nameAndSong[1].innerText = h1.innerText;
+      // const footerImage = document.querySelector("#image-music-player");
+      // const imageOfClickedSong = songName.parentElement;
+      // footerImage.style.backgroundImage = `url(${artistPickImage})`;
+    });
 
     // generateListOfSongsWithApiData(currentTracklist, liList[i]);
     const liImage = currentLi.querySelector("div.song-image-li-item");
@@ -304,14 +355,12 @@ async function displayCurrentArtistDataOnPage() {
     index++;
     albumNameCardBody.innerText = fetchedAlbumName;
   }
-
-  // let index = 0;
-  // liList.forEach((li) => {
-  // const currentTracklist = trackList[index];
-  // generateListOfSongsWithApiData(currentTracklist, li);
-  // index++;
-  // });
 }
+
+const heartIconFooter = document.querySelector("#heart-footer i");
+heartIconFooter.addEventListener("click", () => {
+  heartIconFooter.classList.toggle("red-color");
+});
 
 window.onload = () => {
   goBackToHomePage();
@@ -320,3 +369,149 @@ window.onload = () => {
   generatePopularReleasesContent();
   displayCurrentArtistDataOnPage();
 };
+
+//music player
+
+const playIconContainer = document.getElementById("play-icon");
+const audioPlayerContainer = document.getElementById("audio-player-container");
+const seekSlider = document.getElementById("seek-slider");
+const volumeSlider = document.getElementById("volume-slider");
+const muteIconContainer = document.getElementById("mute-icon");
+let playState = "play";
+let muteState = "unmute";
+
+const playPauseButton = document.querySelector("div .playPauseButton");
+playPauseButton.addEventListener("click", () => {
+  const playIconContainer = document.getElementById("play-icon");
+  if (playState === "play") {
+    playPauseButton.innerHTML = "";
+    playPauseButton.innerHTML = `<i id="play-icon" class="bi bi-pause-circle-fill"></i>`;
+    playState = "pause";
+    const audioTag = document.querySelector("audio");
+    audioTag.play();
+    requestAnimationFrame(whilePlaying);
+  } else {
+    playPauseButton.innerHTML = "";
+    playPauseButton.innerHTML = `<i id="play-icon" class="bi bi-play-circle-fill"></i>`;
+    playState = "play";
+    const audioTag = document.querySelector("audio");
+    audioTag.pause();
+  }
+});
+
+muteIconContainer.addEventListener("click", () => {
+  if (muteState === "unmute") {
+    muteIconContainer.innerHTML = "";
+    muteIconContainer.innerHTML = `<i class="bi bi-volume-mute"></i>`;
+    audio.muted = true;
+    muteState = "mute";
+  } else {
+    muteIconContainer.innerHTML = "";
+    muteIconContainer.innerHTML = `<i class="bi bi-volume-down"></i>`;
+    audio.muted = false;
+    muteState = "unmute";
+  }
+});
+
+const showRangeProgress = (rangeInput) => {
+  if (rangeInput === seekSlider) {
+    audioPlayerContainer.style.setProperty(
+      "--seek-before-width",
+      (rangeInput.value / rangeInput.max) * 100 + "%"
+    );
+  } else {
+    audioPlayerContainer.style.setProperty(
+      "--volume-before-width",
+      (rangeInput.value / rangeInput.max) * 100 + "%"
+    );
+  }
+};
+
+seekSlider.addEventListener("input", (e) => {
+  showRangeProgress(e.target);
+});
+volumeSlider.addEventListener("input", (e) => {
+  showRangeProgress(e.target);
+});
+
+/** Implementation of the functionality of the audio player */
+
+const audio = document.querySelector("audio");
+const durationContainer = document.getElementById("duration");
+const currentTimeContainer = document.getElementById("current-time");
+// const outputContainer = document.getElementById("volume-output");
+let raf = null;
+
+const calculateTime = (secs) => {
+  const minutes = Math.floor(secs / 60);
+  const seconds = Math.floor(secs % 60);
+  const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  return `${minutes}:${returnedSeconds}`;
+};
+
+const displayDuration = () => {
+  durationContainer.textContent = calculateTime(audio.duration);
+};
+
+const setSliderMax = () => {
+  seekSlider.max = Math.floor(audio.duration);
+};
+
+const displayBufferedAmount = () => {
+  const bufferedAmount = Math.floor(
+    audio.buffered.end(audio.buffered.length - 1)
+  );
+  audioPlayerContainer.style.setProperty(
+    "--buffered-width",
+    `${(bufferedAmount / seekSlider.max) * 100}%`
+  );
+};
+
+const whilePlaying = () => {
+  seekSlider.value = Math.floor(audio.currentTime);
+  currentTimeContainer.textContent = calculateTime(seekSlider.value);
+  audioPlayerContainer.style.setProperty(
+    "--seek-before-width",
+    `${(seekSlider.value / seekSlider.max) * 100}%`
+  );
+  raf = requestAnimationFrame(whilePlaying);
+};
+
+if (audio.readyState > 0) {
+  displayDuration();
+  setSliderMax();
+  displayBufferedAmount();
+} else {
+  audio.addEventListener("loadedmetadata", () => {
+    displayDuration();
+    setSliderMax();
+    displayBufferedAmount();
+  });
+}
+
+audio.addEventListener("progress", displayBufferedAmount);
+
+seekSlider.addEventListener("input", () => {
+  currentTimeContainer.textContent = calculateTime(seekSlider.value);
+  if (!audio.paused) {
+    cancelAnimationFrame(raf);
+  }
+});
+
+seekSlider.addEventListener("change", () => {
+  audio.currentTime = seekSlider.value;
+  if (!audio.paused) {
+    requestAnimationFrame(whilePlaying);
+  }
+});
+
+volumeSlider.addEventListener("input", (e) => {
+  const muteIcon = document.querySelector("#mute-icon i");
+  const value = e.target.value;
+  showRangeProgress(e.target);
+  // outputContainer.textContent = value;
+  audio.volume = value / 100;
+  muteIcon.addEventListener("click", () => {
+    showRangeProgress(0);
+  });
+});
