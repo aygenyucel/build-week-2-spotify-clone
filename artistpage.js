@@ -84,7 +84,7 @@ function createLiContent(ol) {
   li.innerHTML = `<div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="d-flex align-items-center">
                       <div class="song-image-li-item d-flex align-items-center justify-content-center">
-                      Image
+                      <img src="https://e-cdns-images.dzcdn.net/images/cover/e2b36a9fda865cb2e9ed1476b6291a7d/270x250-000000-80-0-0.jpg" alt=""/>
                       </div>
                     <div class="ml-3 song-name">Song name</div>
                   </div>
@@ -174,8 +174,9 @@ function generatePopularReleasesContent() {
 
 //change the color of the navbar when scrolling
 const navbar = document.querySelector("#navbar-container");
-window.onscroll = () => {
-  if (window.scrollY > 50) {
+const rightContainer = document.querySelector(".right-container");
+rightContainer.onscroll = () => {
+  if (rightContainer.scrollTop > 250) {
     navbar.classList.add("nav-active");
   } else {
     navbar.classList.remove("nav-active");
@@ -306,16 +307,20 @@ async function displayCurrentArtistDataOnPage() {
       nameAndSong[0].innerText = songName.innerText;
       const h1 = document.querySelector("h1");
       nameAndSong[1].innerText = h1.innerText;
-      // const footerImage = document.querySelector("#image-music-player");
-      // const imageOfClickedSong = songName.parentElement;
-      // footerImage.style.backgroundImage = `url(${artistPickImage})`;
+      const footerImage = document.querySelector("#image-music-player");
+      const imageOfClickedSong = songName.parentElement;
+      const imageSong = imageOfClickedSong.querySelector(
+        "div.song-image-li-item img"
+      );
+      footerImage.style.backgroundImage = `url(${imageSong.src})`;
     });
 
     // generateListOfSongsWithApiData(currentTracklist, liList[i]);
-    const liImage = currentLi.querySelector("div.song-image-li-item");
+    const liImage = currentLi.querySelector("div.song-image-li-item img");
     const songImageLi = currentTracklist.album.cover_medium;
     // console.log("image", songImageLi);
-    liImage.style.backgroundImage = `url(${songImageLi})`;
+    // liImage.style.backgroundImage = `url(${songImageLi})`;
+    liImage.src = `${songImageLi}`;
 
     const rankLi = currentLi.querySelector("span.rank");
     const fetchedRank = currentTracklist.rank;
