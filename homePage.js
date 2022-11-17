@@ -1,24 +1,11 @@
-// window.onload = async () => {
-//   //we need to display 6 cards
-//   for (let i = 0; i < 6; i++) {
-//     const randomArtist =
-//       randomArtistArray[Math.floor(Math.random() * randomArtistArray.length)];
-//     const artistData = await fetchData(
-//       `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomArtist}`
-//     );
-//     const albumData = [];
-//     artistData.forEach((song) => {
-//       albumData.push(song.album);
-//     });
-//     displayAlbumCard(albumData);
-//   }
-// };
-
 window.onload = () => {
+  // fetchDataFunction();
+  createCardsForRecentlyPlayedSection();
+  callApiFromAlbumArray();
   displayGoodMorningSection();
 };
 
-
+// **************displaying Good Morning Section************
 async function displayGoodMorningSection() {
   //we need to display 6 cards
   for (let i = 0; i < 6; i++) {
@@ -61,11 +48,11 @@ const randomArtistArray = [
 ];
 
 function displayAlbumCard(albumData) {
-  console.log("jkfd:", albumData);
+  // console.log("jkfd:", albumData);
 
   const { id, title, cover } =
     albumData[Math.floor(Math.random() * albumData.length)];
-  console.log("RANDOM ALBUM:", { id, title, cover });
+  // console.log("RANDOM ALBUM:", { id, title, cover });
 
   const goodMorningSectionRow = document.querySelector(
     ".good-morning-section-row"
@@ -88,6 +75,8 @@ function displayAlbumCard(albumData) {
                     </a>`;
   goodMorningSectionRow.appendChild(col);
 }
+
+// **************displaying Recently Played & Shows to Try Section************
 
 const recentlyPlayedSection = document.querySelector(
   "div .recently-played-section-row"
@@ -275,9 +264,3 @@ function addApiDataForOneCard(objectArtistFetched, card) {
 
 // console.log(movieId);
 // console.log(movieCategory);
-
-window.onload = () => {
-  // fetchDataFunction();
-  createCardsForRecentlyPlayedSection();
-  callApiFromAlbumArray();
-};
