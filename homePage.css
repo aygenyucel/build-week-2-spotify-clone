@@ -62,7 +62,10 @@
   color: white;
 }
 
-.recently-played-section-row,
+.recently-played-section-row {
+  height: 260px;
+}
+
 .shows-to-try-section-row {
   overflow-y: hidden;
   height: 260px;
