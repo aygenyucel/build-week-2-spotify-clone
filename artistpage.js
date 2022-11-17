@@ -82,14 +82,14 @@ function seeMore() {
 function createLiContent(ol) {
   const li = document.createElement("li");
   li.innerHTML = `<div class="d-flex justify-content-between align-items-center mb-2">
-                    <div class="d-flex align-items-center">
-                      <div class="song-image-li-item d-flex align-items-center justify-content-center">
+                    <div class="d-flex align-items-center liSongAndImageContainer ">
+                      <div class="ml-3 song-image-li-item d-flex align-items-center justify-content-center">
                       <img src="https://e-cdns-images.dzcdn.net/images/cover/e2b36a9fda865cb2e9ed1476b6291a7d/270x250-000000-80-0-0.jpg" alt=""/>
                       </div>
                     <div class="ml-3 song-name">Song name</div>
                   </div>
-                  <span class="rank">1.0438432.322</span>
-                  <span class="duration">3:32</span>
+                  <span class="rank d-none d-lg-block">1.0438432.322</span>
+                  <span class="duration d-none d-sm-block">3:32</span>
                   </div>`;
   ol.appendChild(li);
 
@@ -239,7 +239,7 @@ function randomNumber(min, max) {
 async function displayCurrentArtistDataOnPage() {
   const currentArtistResult = await fetchDataFunction();
   console.log("our obj", currentArtistResult);
-  const jumbotronImage = currentArtistResult.picture_big;
+  const jumbotronImage = currentArtistResult.picture_xl;
   const artistPickImage = currentArtistResult.picture_medium;
   const postedByImage = currentArtistResult.picture_small;
   const name = currentArtistResult.name;
