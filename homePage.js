@@ -1,4 +1,24 @@
-window.onload = async () => {
+// window.onload = async () => {
+//   //we need to display 6 cards
+//   for (let i = 0; i < 6; i++) {
+//     const randomArtist =
+//       randomArtistArray[Math.floor(Math.random() * randomArtistArray.length)];
+//     const artistData = await fetchData(
+//       `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomArtist}`
+//     );
+//     const albumData = [];
+//     artistData.forEach((song) => {
+//       albumData.push(song.album);
+//     });
+//     displayAlbumCard(albumData);
+//   }
+// };
+
+window.onload = () => {
+  displayGoodMorningSection();
+};
+
+async function displayGoodMorningSection() {
   //we need to display 6 cards
   for (let i = 0; i < 6; i++) {
     const randomArtist =
@@ -12,7 +32,7 @@ window.onload = async () => {
     });
     displayAlbumCard(albumData);
   }
-};
+}
 
 async function fetchData(url) {
   const response = await fetch(url, {
