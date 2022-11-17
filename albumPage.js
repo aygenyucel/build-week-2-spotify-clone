@@ -31,20 +31,19 @@ function displayAlbum(data) {
   songsElement.innerHTML = "";
 
   //   console.log(albumSongsData.duration);
-
+  let albumDuration = 0;
   albumSongsData.forEach((track, index) => {
     // console.log(track.duration);
 
-    var trackMinutes = Math.floor(track.duration / 60);
-    var trackSeconds = track.duration - trackMinutes * 60;
+    let trackMinutes = Math.floor(track.duration / 60);
+    let trackSeconds = track.duration - trackMinutes * 60;
     if (trackSeconds < 10) {
       trackSeconds = `0${trackSeconds}`;
     }
-    if (trackMinutes < 10) {
-      trackMinutes = `0${trackMinutes}`;
-    }
 
     trackDuration = `${trackMinutes}: ${trackSeconds}`;
+
+    albumDuration += track.duration;
 
     songsElement.innerHTML += `<div class="col d-flex">
                                         <span class="track_num align-self-center">${
@@ -61,18 +60,31 @@ function displayAlbum(data) {
                                     </div>`;
   });
 
-  //   console.log("data:", data);
+  let albumMinutes = Math.floor(albumDuration / 60);
+  let albumSeconds = albumDuration - albumMinutes * 60;
+
+  let albumYear = data.release_date.substr(0, 4);
+
+  console.log("data:", data);
 
   const albumCoverElement = document.querySelector(".album_cover");
   albumCoverElement.innerHTML = `<img src="${data.cover_big}" alt="..." />
                                           <div class="album_name d-flex flex-column justify-content-end">
-                                          <span class="font-weight-bold">Album</span>
+                                          <span class="font-weight-bold">ALBUM</span>
                                           <span class="font-weight-bold"
                                               >${data.title}</span
                                           >
-                                          <div class="bottom_text">
+                                          <div class="bottom_text d-flex flex-row align-items-center">
                                               <img src="${data.cover_small}" alt="..." />
-                                              <span><span class="font-weight-bold">${data.artist.name}</span></span>
+                                              
+                                              <div class="d-flex flex-row align-items-center">
+                                                <div class="font-weight-bold">${data.artist.name}</div>
+                                                <div class="point-divider"></div>
+                                                <div>${albumYear}</div>
+                                                <div class="point-divider"></div>
+                                                <div class="mr-1">${data.nb_tracks} songs,</div>
+                                                <div><small> ${albumMinutes} min ${albumSeconds} sec </small></div>
+                                              </div>
                                           </div>
                                       </div>`;
 }
