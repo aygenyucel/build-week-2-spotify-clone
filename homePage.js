@@ -1,9 +1,19 @@
 window.onload = () => {
   // fetchDataFunction();
   createCardsForRecentlyPlayedSection();
+  setDisplaysForShowsToTrySection();
   callApiFromAlbumArray();
   displayGoodMorningSection();
 };
+
+// const navbar = document.querySelector(".right-container");
+// window.onscroll = () => {
+//   if (window.scrollY > 30) {
+//     navbar.classList.add("nav-active");
+//   } else {
+//     navbar.classList.remove("nav-active");
+//   }
+// };
 
 // **************displaying Good Morning Section************
 async function displayGoodMorningSection() {
@@ -138,6 +148,33 @@ function createCardsForRecentlyPlayedSection() {
     createSingelCardForRecentlyPlayedSection();
     const cardsList = document.querySelectorAll(
       "div .recently-played-section-row > div"
+    );
+    for (let i = 0; i < cardsList.length; i++) {
+      if (i === 0) cardsList[i].classList.add("d-block");
+      else if (i === 1) {
+        cardsList[i].classList.add("d-none");
+        cardsList[i].classList.add("d-sm-block");
+      } else if (i === 2) {
+        cardsList[i].classList.add("d-none");
+        cardsList[i].classList.add("d-md-block");
+      } else if (i === 3) {
+        cardsList[i].classList.add("d-none");
+        cardsList[i].classList.add("d-lg-block");
+      } else if (i === 4) {
+        cardsList[i].classList.add("d-none");
+        cardsList[i].classList.add("d-xl-block");
+      } else if (i === 5) {
+        cardsList[i].classList.add("d-none");
+        cardsList[i].classList.add("d-xl-block");
+      }
+    }
+  }
+}
+
+function setDisplaysForShowsToTrySection() {
+  for (let i = 0; i < 6; i++) {
+    const cardsList = document.querySelectorAll(
+      "div .shows-to-try-section-row > div"
     );
     for (let i = 0; i < cardsList.length; i++) {
       if (i === 0) cardsList[i].classList.add("d-block");
