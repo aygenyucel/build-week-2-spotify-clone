@@ -109,9 +109,9 @@ body {
   transition: background-color 0.5s;
 }
 
-/* .nav-active {
-  background-color: green !important;
-} */
+.nav-active {
+  background-color: rgb(64, 64, 64) !important;
+}
 
 #navbar-container nav {
   background-color: #6c676721;
@@ -418,17 +418,30 @@ span.album-card-body {
 }
 
 #artist-and-song-footer {
-  width: 50px;
+  width: 100px;
+  height: 70px;
 }
 
 #artist-and-song-footer div {
   cursor: default;
   font-size: 15px;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .red-color {
   cursor: pointer;
   color: rgb(249, 71, 71) !important;
+}
+
+.song-image-li-item img {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /*--------Aygen css for the lateral navbar---------*/
