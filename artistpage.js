@@ -1,3 +1,8 @@
+const followButton = document.querySelector(".follow-button");
+followButton.addEventListener("click", () => {
+  followButton.classList.toggle("make-it-green");
+});
+
 function goBackToHomePage() {
   const goBackButton = document.querySelector(
     ".right-container ul li:first-child a"
@@ -16,7 +21,7 @@ function createOlList() {
 function createOl() {
   const placeToAppend = document.querySelectorAll(".music-container .row")[1];
   const placeToAppendOl = placeToAppend.querySelector("div:first-child");
-  placeToAppendOl.innerHTML += `<ol></ol>`;
+  placeToAppendOl.innerHTML += `<ol class="list-styling"></ol>`;
 
   createSeeMoreButton(placeToAppendOl);
   // placeToAppendOl.appendChild(seeMoreButton);
@@ -87,6 +92,23 @@ function createLiContent(ol) {
                   <span class="duration">3:32</span>
                   </div>`;
   ol.appendChild(li);
+
+  let index = 0;
+  const songNamesList = document.querySelectorAll(".song-name");
+  for (let i = 0; i < songNamesList.length; i++) {
+    let clicked = 0;
+
+    songNamesList[i].addEventListener("click", () => {
+      if (index != 0) {
+        songNamesList[i].style.color = "#1fb750";
+        songNamesList[index - 1].style.color = "white";
+      } else {
+        songNamesList[i].style.color = "#1fb750";
+      }
+      index = i + 1;
+      clicked = 1;
+    });
+  }
 }
 
 //creates card and appends it to the "Popular releases container"
@@ -108,8 +130,8 @@ function createCardPopularReleases() {
               class="card-body text-light d-flex flex-column align-items-start"
             >
               <h5 class="card-title wirte-just-on-one-line">Song title</h5>
-              <div class="card-text">
-                <span>2022</span>
+              <div class="card-text pt-1">
+                <span class="d-flex justify-content-start">2022</span>
                 <span>
                   <i class="bi bi-dot"></i>
                 </span>
@@ -224,9 +246,9 @@ async function displayCurrentArtistDataOnPage() {
   artistName.innerText = name;
   const artistPick = document.querySelector("#artist-pick-image");
   artistPick.style.backgroundImage = `url(${artistPickImage})`;
-  const postedBy = document.querySelector("#image-tag-posted-by");
-  postedBy.style.backgroundImage = `url(${postedByImage})`;
-  const postedByArtistName = postedBy.nextElementSibling;
+  const postedBy = document.querySelector("#image-tag-posted-by img");
+  postedBy.src = `${postedByImage}`;
+  const postedByArtistName = document.querySelector("#posted-by");
   postedByArtistName.innerText = `Posted by ${name}`;
   const bestOf = document.querySelector("#best-of");
   bestOf.innerText = `${name} Best Of`;
