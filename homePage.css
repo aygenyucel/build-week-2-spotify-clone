@@ -590,10 +590,22 @@ ol li > div {
 /* ***************************************** */
 /* header mobile */
 .header-mobile {
+  visibility: hidden;
+  display: none;
   position: absolute;
   right: 0;
   bottom: 0;
   top: 0;
+  margin: auto 0;
+}
+
+.header-mobile a {
+  color: white;
+  padding-left: 15px;
+}
+
+.header-mobile i {
+  font-size: 1.5rem;
 }
 
 /* ***************************************** */
@@ -670,6 +682,10 @@ ol li > div {
   .footer-mobile {
     display: block;
   }
+
+  .header-mobile {
+    visibility: visible;
+  }
   .home-page {
     width: 100vw;
     font-size: 0.8rem;
@@ -682,7 +698,7 @@ ol li > div {
   .main {
     height: calc(100vh);
     width: 100%;
-    padding-top: 30px;
+    padding-top: 50px;
   }
 
   .footer,
