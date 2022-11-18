@@ -146,7 +146,7 @@
       <div class="song_list d-flex flex-column">
         <div class="upper_hat d-flex justify-content-between">
           <div class="buttons d-flex justify-content-between">
-            <button><i class="bi bi-chevron-left"></i></button>
+            <button><a href="./homePage.html"><i class="bi bi-chevron-left"></i></a></button>
             <button><i class="bi bi-chevron-right"></i></button>
           </div>
           <div class="dropdown">
@@ -170,15 +170,15 @@
           </div>
         </div>
         <div class="album_cover d-flex">
-          <img src="./assets/Bohemian_Rhapsody_soundtrack.jpg" alt="..." />
+          <img id="logo_album" src="./assets/Bohemian_Rhapsody_soundtrack.jpg" alt="..." />
           <div class="album_name d-flex flex-column justify-content-end">
             <span class="font-weight-bold">ALBUM</span>
-            <span class="font-weight-bold"
+            <span class="font-weight-bold" id="name_of_album"
               >Bohemian Rhapsody(The Original Soundtrack)</span
             >
             <div class="bottom_text">
               <img src="./assets/Bohemian_Rhapsody_soundtrack.jpg" alt="..." />
-              <span><span class="font-weight-bold artist_name">Queen</span>.1.2.3</span>
+              <span id="small_artist"><span class="font-weight-bold artist_name">Queen</span>.1.2.3</span>
             </div>
           </div>
         </div>
@@ -335,6 +335,39 @@
         </div>
       </div>
     </div>
+
+    <div class="container-fluid mobile_current_track">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-4">1</div>
+        <div class="col-4">
+          <div class="mobile_play_btn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+        </div>
+        <div class="col-4">3</div>
+      </div>
+    </div>
+
+    <div class="container-fluid mobile_navbar">
+      <div class="row d-flex align-items-center text-center">
+        <div class="col-4">
+          <i class="fa-brands fa-discord"></i>
+          <br>
+          <span>Home</span>
+        </div>
+        <div class="col-4">
+          <i class="fa-brands fa-discord"></i>
+          <br>
+          <span>Search</span>
+        </div>
+        <div class="col-4">
+          <i class="fa-brands fa-discord"></i>
+          <br>
+          <span>Your Library</span>
+        </div>
+      </div>
+    </div>
+
     <script src="./albumPage.js"></script>
 
     <script
