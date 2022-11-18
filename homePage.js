@@ -1,7 +1,7 @@
 window.onload = () => {
   // fetchDataFunction();
   createCardsForRecentlyPlayedSection();
-  setDisplaysForShowsToTrySection();
+  createCardsForShowsToTrySection();
   callApiFromAlbumArray();
   displayGoodMorningSection();
 };
@@ -105,7 +105,7 @@ function createSingelCardForRecentlyPlayedSection() {
                                         <i class="bi bi-play-circle-fill play-button-on-card"></i>
                                       </div>
                                     </div>
-                                    <div class="mt-3 w-100">
+                                    <div class="mt-3 w-100 d-flex flex-column">
                                       <div class="song-name song-card-vertical-song-name">Master of Puppet</div>
                                       <a class="artist-link card-link" href="./artistPage.html">
                                         <div class="artist-name song-card-vertical-artist-name">Metallica</div>
@@ -113,15 +113,17 @@ function createSingelCardForRecentlyPlayedSection() {
                                     </div>
                                   </div>
                                 </div>`;
+}
 
-  const showsTotTrySection = document.querySelector(
+function createSingelCardForShowsToTrySection() {
+  const showsToTrySection = document.querySelector(
     "div .shows-to-try-section-row"
   );
 
-  showsTotTrySection.innerHTML += `<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-sm-auto mx-md-auto">
+  showsToTrySection.innerHTML += `<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mx-sm-auto mx-md-auto">
                                     <a class="artist-link card-link" href="./artistPage.html">
                                       <div class="artist-card-vertical">
-                                        <div>
+                                        <div class="position-relative">
                                           <img
                                             src="https://i.scdn.co/image/ab6761610000e5eb0accbbe13e1aa147dd27671c"
                                             alt=""
@@ -151,47 +153,51 @@ function createCardsForRecentlyPlayedSection() {
     );
     for (let i = 0; i < cardsList.length; i++) {
       if (i === 0) cardsList[i].classList.add("d-block");
-      else if (i === 1) {
-        cardsList[i].classList.add("d-none");
+      if (i === 1) {
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-sm-block");
       } else if (i === 2) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-md-block");
       } else if (i === 3) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-lg-block");
       } else if (i === 4) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-xl-block");
       } else if (i === 5) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-xl-block");
       }
     }
   }
 }
 
-function setDisplaysForShowsToTrySection() {
+function createCardsForShowsToTrySection() {
+  const ShowsToTrySection = document.querySelector(
+    "div .shows-to-try-section-row"
+  );
   for (let i = 0; i < 6; i++) {
+    createSingelCardForShowsToTrySection();
     const cardsList = document.querySelectorAll(
       "div .shows-to-try-section-row > div"
     );
     for (let i = 0; i < cardsList.length; i++) {
       if (i === 0) cardsList[i].classList.add("d-block");
-      else if (i === 1) {
-        cardsList[i].classList.add("d-none");
+      if (i === 1) {
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-sm-block");
       } else if (i === 2) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-md-block");
       } else if (i === 3) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-lg-block");
       } else if (i === 4) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-xl-block");
       } else if (i === 5) {
-        cardsList[i].classList.add("d-none");
+        // cardsList[i].classList.add("d-none");
         cardsList[i].classList.add("d-xl-block");
       }
     }

@@ -50,7 +50,7 @@
     rgba(82, 6, 3, 1) 0%,
     rgba(18, 18, 18, 1) 35%
   );
-  padding-bottom: 30px;
+  padding-bottom: 158px;
 }
 
 .song-card-vertical .artist-link:hover .artist-name {
@@ -676,7 +676,10 @@ ol li > div {
 .footer-mobile-navbar i {
   font-size: 1.3rem;
 }
-
+.recently-played-section-row > div,
+.shows-to-try-section-row > div {
+  display: none;
+}
 /* ***************************************** */
 @media screen and (max-width: 575px) {
   .footer-mobile {
@@ -713,5 +716,26 @@ ol li > div {
   }
   .album-card-horizontal-name {
     padding-right: 10px;
+  }
+  .recently-played-section-row,
+  .shows-to-try-section-row {
+    display: flex !important;
+    flex-wrap: nowrap; /* [1] */
+    overflow-x: auto; /* [2] */
+    -webkit-overflow-scrolling: touch; /* [3] */
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
+    display: block;
+  }
+
+  .recently-played-section-row > div,
+  .shows-to-try-section-row > div {
+    display: block;
+  }
+
+  .song-card-vertical,
+  .artist-card-vertical {
+    padding-inline: 15px;
+    height: 319px;
+    width: 241px;
   }
 }
