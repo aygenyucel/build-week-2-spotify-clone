@@ -129,7 +129,6 @@ function createSingelCardForRecentlyPlayedSection() {
                                   </div>`;
 }
 
-// console.log(recentlyPlayedSection);
 function createCardsForRecentlyPlayedSection() {
   const recentlyPlayedSection = document.querySelector(
     "div .recently-played-section-row"
@@ -183,13 +182,11 @@ let url = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 async function fetchDataFunction(url) {
   //this returns a promise
-  // for (let album of albumArray) {
   // url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${album}`;
   const response = await fetch(url, { method: "GET" });
   //this returns an object
   const result = await response.json();
   //with the result.data you have access to the array itself
-  // console.log(result.data);
   return result.data;
 }
 
@@ -201,7 +198,6 @@ async function callApiFromAlbumArray() {
   let index = 0;
   for (let i = 0; i < albumArray.length; i++) {
     let randomIndex = randomNumber(0, 25);
-    console.log("Random index", randomIndex);
     const recentlyPlayedCardList = document.querySelectorAll(
       "div.recently-played-section div.recently-played-section-row div.song-card-vertical"
     );
@@ -223,12 +219,9 @@ async function callApiFromAlbumArray() {
     const albumArrayFetchResult = await fetchDataFunction(url);
     const currentObjectArtist = albumArrayFetchResult[randomIndex];
     addApiDataForOneCard(currentObjectArtist, recentlyPlayedCardList[index]);
-    console.log(albumArrayFetchResult);
     index++;
   }
 }
-
-// console.log(recentlyPlayedCardList);
 
 function addApiDataForShowsToTrySectionCard(objectArtistFetched, card) {
   const artistKeyOfObjectArtistFetched = objectArtistFetched.artist;
@@ -256,11 +249,3 @@ function addApiDataForOneCard(objectArtistFetched, card) {
   cardArtistName.innerText = artistName;
   cardArtistLink.href = `./artistPage.html?artistName=${artistName}&artistId=${artistId}`;
 }
-
-// const params = new URLSearchParams(window.location.search);
-// console.log(params);
-// const artistId = params.get("artistId");
-// const artistName = params.get("artistName");
-
-// console.log(movieId);
-// console.log(movieCategory);
