@@ -142,6 +142,10 @@ body {
   font-weight: bold;
 }
 
+button.seeMoreButton:hover {
+  color: #484848;
+}
+
 .rank {
   display: inline-block;
   width: 20%;

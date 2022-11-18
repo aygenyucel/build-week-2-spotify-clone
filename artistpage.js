@@ -1,8 +1,10 @@
+//when click on follow button, it will toggle background-color
 const followButton = document.querySelector(".follow-button");
 followButton.addEventListener("click", () => {
   followButton.classList.toggle("make-it-green");
 });
 
+//when cclick on navbar header left arrow, you go back to home page
 function goBackToHomePage() {
   const goBackButton = document.querySelector(
     ".right-container ul li:first-child a"
@@ -12,6 +14,7 @@ function goBackToHomePage() {
   });
 }
 
+//creates the ol list from "Popular" section with all li-s and the see more button
 function createOlList() {
   createOl();
   createSequenceOfFiveSongs();
@@ -24,7 +27,6 @@ function createOl() {
   placeToAppendOl.innerHTML += `<ol class="list-styling"></ol>`;
 
   createSeeMoreButton(placeToAppendOl);
-  // placeToAppendOl.appendChild(seeMoreButton);
 }
 
 //creates the "See more/Show less button" and appends it to the ol
@@ -37,12 +39,13 @@ function createSeeMoreButton(ol) {
     } else {
       seeMoreButton.innerText = "SEE MORE";
     }
-    seeMore();
+    seeMore(); //displays 5 more songs on click and if you click again, they are displayed-none again
   });
   seeMoreButton.classList = "btn";
   seeMoreButton.setAttribute("type", "button");
   seeMoreButton.classList.add("seeMoreButton");
   seeMoreButton.classList.add("text-light");
+  seeMoreButton.classList.add("mt-3");
   ol.appendChild(seeMoreButton);
 }
 
@@ -57,7 +60,6 @@ function createSequenceOfFiveSongs() {
   const liList = ol.querySelectorAll("li");
 
   for (let i = 5; i < liList.length; i++) {
-    // console.log(liList[i]);
     const currentLi = liList[i];
     currentLi.classList.add("d-none");
   }
@@ -72,7 +74,6 @@ function seeMore() {
   const liList = ol.querySelectorAll("li");
 
   for (let i = 5; i < liList.length; i++) {
-    // console.log(liList[i]);
     const currentLi = liList[i];
     currentLi.classList.toggle("d-none");
   }
@@ -183,62 +184,38 @@ rightContainer.onscroll = () => {
   }
 };
 
-// const customUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${albumName}`;
-
+//get the query params from the url for displaying data on artist page
 const params = new URLSearchParams(window.location.search);
-console.log(params);
 const artistId = params.get("artistId");
 const artistName = params.get("artistName");
-console.log(artistId);
-console.log(artistName);
 
 const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
 
+//fetches the data from the url
 async function fetchDataFunction() {
   //this returns a promise
   const response = await fetch(url, { method: "GET" });
-  console.log(response);
   //this returns an object
   const result = await response.json();
-  console.log(result);
   //with the result.data you have access to the array itself
-  // console.log(result.data);
   return result;
 }
 
+//fetches data for the artist page
 async function fetchForArtistPageSongsList(url) {
   const response = await fetch(url, { method: "GET" });
   const result = await response.json();
-  console.log(result.data);
   return result.data;
 }
 
-// function generateListOfSongsWithApiData(obj, currentLi) {
-//   const liImage = currentLi.querySelector("div.song-image-li-item");
-//   const rankLi = currentLi.querySelector("span.rank");
-//   const fetchedRank = obj.rank;
-//   rankLi.innerText = fetchedRank;
-//   const songDurationLi = currentLi.querySelector("span.duration");
-//   const duration = obj.duration;
-//   const minutes = duration / 60;
-//   const seconds = duration % 60;
-//   if (seconds < 10) {
-//     seconds = `0${seconds}`;
-//   }
-//   songDurationLi.innerText = `${minutes}:${seconds}`;
-//   const songImageLi = obj.md5_image;
-//   liImage.style.backgroundImage = `url(${songImageLi});`;
-//   const contributors = obj.contributors;
-//   const songNameLi = obj.title_short;
-//   const audioPlayerSrc = obj.preview;
-// }
+//generates a random number between min(included) and max (excluded)
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+//puts the fetched data on the artist page
 async function displayCurrentArtistDataOnPage() {
   const currentArtistResult = await fetchDataFunction();
-  console.log("our obj", currentArtistResult);
   const jumbotronImage = currentArtistResult.picture_xl;
   const artistPickImage = currentArtistResult.picture_medium;
   const postedByImage = currentArtistResult.picture_small;
@@ -262,25 +239,20 @@ async function displayCurrentArtistDataOnPage() {
   monthlyListeners.innerText = `${listeners} monthly listeners`;
   const urlTrackList = currentArtistResult.tracklist;
 
-  console.log(urlTrackList);
-  // const url = urlTrackList;
   const trackList = await fetchForArtistPageSongsList(urlTrackList);
   const multipleTracksUrl = trackList[0].artist.tracklist;
 
   const contributorsKeyOfTracklist = trackList.contributors;
-  console.log("Tracklist", trackList);
+
+  //puts the fetched data in the Popular section
   const liList = document.querySelectorAll("ol li");
   let index = 0;
   for (let i = 0; i < liList.length; i++) {
     let currentTracklist = trackList[index];
     if (index === trackList.length) {
-      console.log(trackList.length);
       index = 0;
       currentTracklist = trackList[index];
     }
-    // console.log("currentLi", liList[i]);
-    // const currentTracklist = trackList[index];
-    console.log("currentTracklist", currentTracklist);
     const currentLi = liList[i];
     let songName = currentLi.querySelector(".song-name");
     songName.innerText = currentTracklist.title_short;
@@ -292,9 +264,8 @@ async function displayCurrentArtistDataOnPage() {
     const h1 = document.querySelector("h1");
     nameAndSong[1].innerText = h1.innerText;
 
+    //on click on a song name, it toggles background-color to green
     songName.addEventListener("click", () => {
-      console.log(songName.innerText);
-      // songName.style.color = "red";
       const audioTag = document.querySelector("#audio-tag");
       audioTag.src = currentTracklist.preview;
       const playerPlayButton = document.querySelector(".playPauseButton");
@@ -312,21 +283,25 @@ async function displayCurrentArtistDataOnPage() {
       const imageSong = imageOfClickedSong.querySelector(
         "div.song-image-li-item img"
       );
+
+      //updates the image footer with the one from the current selected song
       footerImage.style.backgroundImage = `url(${imageSong.src})`;
     });
 
-    // generateListOfSongsWithApiData(currentTracklist, liList[i]);
+    //updates the song image for Popular section
     const liImage = currentLi.querySelector("div.song-image-li-item img");
     const songImageLi = currentTracklist.album.cover_medium;
-    // console.log("image", songImageLi);
-    // liImage.style.backgroundImage = `url(${songImageLi})`;
     liImage.src = `${songImageLi}`;
 
+    //updated the rank with the data fetched for a certain artist
     const rankLi = currentLi.querySelector("span.rank");
     const fetchedRank = currentTracklist.rank;
     rankLi.innerText = fetchedRank;
+
+    //updates the song duration with data fetched for it
     const songDurationLi = currentLi.querySelector("span.duration");
     const duration = currentTracklist.duration;
+    //transforming duration from seconds to minutes in a normal format
     const minutes = Math.floor(duration / 60);
     let seconds = duration % 60;
     if (seconds < 10) {
@@ -340,11 +315,12 @@ async function displayCurrentArtistDataOnPage() {
     "#popular-releases div.row > div"
   );
 
+  //displays the Popular releases section on Artist page
+  //by updating the card data with the fetched data
   index = 0;
   for (let i = 0; i < popularReleasesList.length; i++) {
     let currentTracklist = trackList[index];
     if (index === trackList.length) {
-      console.log(trackList.length);
       index = 0;
       currentTracklist = trackList[index];
     }
@@ -362,11 +338,14 @@ async function displayCurrentArtistDataOnPage() {
   }
 }
 
+//when click on hearts icon from footer
+//it toggles the color in red
 const heartIconFooter = document.querySelector("#heart-footer i");
 heartIconFooter.addEventListener("click", () => {
   heartIconFooter.classList.toggle("red-color");
 });
 
+//call functions when window loads
 window.onload = () => {
   goBackToHomePage();
   fetchDataFunction();
@@ -375,8 +354,9 @@ window.onload = () => {
   displayCurrentArtistDataOnPage();
 };
 
-//music player
+//---------------music player functionality
 
+//targeting some elements of the player that we will use
 const playIconContainer = document.getElementById("play-icon");
 const audioPlayerContainer = document.getElementById("audio-player-container");
 const seekSlider = document.getElementById("seek-slider");
@@ -386,6 +366,12 @@ let playState = "play";
 let muteState = "unmute";
 
 const playPauseButton = document.querySelector("div .playPauseButton");
+
+//when click on play/pause button of the player,
+//you change the appearence of the button
+//and you declare the state of the player
+//when click on play button, the state is "play the song"
+//when click on pause button, the state is "pause the song"
 playPauseButton.addEventListener("click", () => {
   const playIconContainer = document.getElementById("play-icon");
   if (playState === "play") {
@@ -404,6 +390,9 @@ playPauseButton.addEventListener("click", () => {
   }
 });
 
+//when click on the volume icon, you display the mute one
+//also, when click on the icon, you change the state of the volume
+//from mute to unmute and viceversa
 muteIconContainer.addEventListener("click", () => {
   if (muteState === "unmute") {
     muteIconContainer.innerHTML = "";
@@ -418,6 +407,10 @@ muteIconContainer.addEventListener("click", () => {
   }
 });
 
+//updates the audio player range according to
+//evolution of the time during the playing song
+//the if is for the audio player, where the song plays
+//the else is for the volume range
 const showRangeProgress = (rangeInput) => {
   if (rangeInput === seekSlider) {
     audioPlayerContainer.style.setProperty(
@@ -432,21 +425,24 @@ const showRangeProgress = (rangeInput) => {
   }
 };
 
+//updates the player with every input, meaning with every second
 seekSlider.addEventListener("input", (e) => {
   showRangeProgress(e.target);
 });
+//updates the volume according to the input
 volumeSlider.addEventListener("input", (e) => {
   showRangeProgress(e.target);
 });
 
 /** Implementation of the functionality of the audio player */
 
+//targeting some elements that we will manipulate
 const audio = document.querySelector("audio");
 const durationContainer = document.getElementById("duration");
 const currentTimeContainer = document.getElementById("current-time");
-// const outputContainer = document.getElementById("volume-output");
 let raf = null;
 
+//transforms the time from seconds into minutes in a clear format
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
   const seconds = Math.floor(secs % 60);
@@ -454,24 +450,17 @@ const calculateTime = (secs) => {
   return `${minutes}:${returnedSeconds}`;
 };
 
+//updates the song duration
 const displayDuration = () => {
   durationContainer.textContent = calculateTime(audio.duration);
 };
 
+//updates the max width of the slider(the song slider) with the duration of the song
 const setSliderMax = () => {
   seekSlider.max = Math.floor(audio.duration);
 };
 
-const displayBufferedAmount = () => {
-  const bufferedAmount = Math.floor(
-    audio.buffered.end(audio.buffered.length - 1)
-  );
-  audioPlayerContainer.style.setProperty(
-    "--buffered-width",
-    `${(bufferedAmount / seekSlider.max) * 100}%`
-  );
-};
-
+//updates the time passed since the song started to play
 const whilePlaying = () => {
   seekSlider.value = Math.floor(audio.currentTime);
   currentTimeContainer.textContent = calculateTime(seekSlider.value);
@@ -485,16 +474,12 @@ const whilePlaying = () => {
 if (audio.readyState > 0) {
   displayDuration();
   setSliderMax();
-  displayBufferedAmount();
 } else {
   audio.addEventListener("loadedmetadata", () => {
     displayDuration();
     setSliderMax();
-    displayBufferedAmount();
   });
 }
-
-audio.addEventListener("progress", displayBufferedAmount);
 
 seekSlider.addEventListener("input", () => {
   currentTimeContainer.textContent = calculateTime(seekSlider.value);
@@ -510,11 +495,11 @@ seekSlider.addEventListener("change", () => {
   }
 });
 
+//makes the volume slider functional
 volumeSlider.addEventListener("input", (e) => {
   const muteIcon = document.querySelector("#mute-icon i");
   const value = e.target.value;
   showRangeProgress(e.target);
-  // outputContainer.textContent = value;
   audio.volume = value / 100;
   muteIcon.addEventListener("click", () => {
     showRangeProgress(0);
