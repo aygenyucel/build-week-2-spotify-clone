@@ -88,3 +88,155 @@ function displayAlbum(data) {
                                           </div>
                                       </div>`;
 }
+
+//---------------music player functionality
+
+//targeting some elements of the player that we will use
+const playIconContainer = document.getElementById("play-icon");
+const audioPlayerContainer = document.getElementById("audio-player-container");
+const seekSlider = document.getElementById("seek-slider");
+const volumeSlider = document.getElementById("volume-slider");
+const muteIconContainer = document.getElementById("mute-icon");
+let playState = "play";
+let muteState = "unmute";
+
+const playPauseButton = document.querySelector("div .playPauseButton");
+
+//when click on play/pause button of the player,
+//you change the appearence of the button
+//and you declare the state of the player
+//when click on play button, the state is "play the song"
+//when click on pause button, the state is "pause the song"
+playPauseButton.addEventListener("click", () => {
+  const playIconContainer = document.getElementById("play-icon");
+  if (playState === "play") {
+    playPauseButton.innerHTML = "";
+    playPauseButton.innerHTML = `<i id="play-icon" class="bi bi-pause-circle-fill"></i>`;
+    playState = "pause";
+    const audioTag = document.querySelector("audio");
+    audioTag.play();
+    requestAnimationFrame(whilePlaying);
+  } else {
+    playPauseButton.innerHTML = "";
+    playPauseButton.innerHTML = `<i id="play-icon" class="bi bi-play-circle-fill"></i>`;
+    playState = "play";
+    const audioTag = document.querySelector("audio");
+    audioTag.pause();
+  }
+});
+
+//when click on the volume icon, you display the mute one
+//also, when click on the icon, you change the state of the volume
+//from mute to unmute and viceversa
+muteIconContainer.addEventListener("click", () => {
+  if (muteState === "unmute") {
+    muteIconContainer.innerHTML = "";
+    muteIconContainer.innerHTML = `<i class="bi bi-volume-mute"></i>`;
+    audio.muted = true;
+    muteState = "mute";
+  } else {
+    muteIconContainer.innerHTML = "";
+    muteIconContainer.innerHTML = `<i class="bi bi-volume-down"></i>`;
+    audio.muted = false;
+    muteState = "unmute";
+  }
+});
+
+//updates the audio player range according to
+//evolution of the time during the playing song
+//the if is for the audio player, where the song plays
+//the else is for the volume range
+const showRangeProgress = (rangeInput) => {
+  if (rangeInput === seekSlider) {
+    audioPlayerContainer.style.setProperty(
+      "--seek-before-width",
+      (rangeInput.value / rangeInput.max) * 100 + "%"
+    );
+  } else {
+    audioPlayerContainer.style.setProperty(
+      "--volume-before-width",
+      (rangeInput.value / rangeInput.max) * 100 + "%"
+    );
+  }
+};
+
+//updates the player with every input, meaning with every second
+seekSlider.addEventListener("input", (e) => {
+  showRangeProgress(e.target);
+});
+//updates the volume according to the input
+volumeSlider.addEventListener("input", (e) => {
+  showRangeProgress(e.target);
+});
+
+/** Implementation of the functionality of the audio player */
+
+//targeting some elements that we will manipulate
+const audio = document.querySelector("audio");
+const durationContainer = document.getElementById("duration");
+const currentTimeContainer = document.getElementById("current-time");
+let raf = null;
+
+//transforms the time from seconds into minutes in a clear format
+const calculateTime = (secs) => {
+  const minutes = Math.floor(secs / 60);
+  const seconds = Math.floor(secs % 60);
+  const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  return `${minutes}:${returnedSeconds}`;
+};
+
+//updates the song duration
+const displayDuration = () => {
+  durationContainer.textContent = calculateTime(audio.duration);
+};
+
+//updates the max width of the slider(the song slider) with the duration of the song
+const setSliderMax = () => {
+  seekSlider.max = Math.floor(audio.duration);
+};
+
+//updates the time passed since the song started to play
+const whilePlaying = () => {
+  seekSlider.value = Math.floor(audio.currentTime);
+  currentTimeContainer.textContent = calculateTime(seekSlider.value);
+  audioPlayerContainer.style.setProperty(
+    "--seek-before-width",
+    `${(seekSlider.value / seekSlider.max) * 100}%`
+  );
+  raf = requestAnimationFrame(whilePlaying);
+};
+
+if (audio.readyState > 0) {
+  displayDuration();
+  setSliderMax();
+} else {
+  audio.addEventListener("loadedmetadata", () => {
+    displayDuration();
+    setSliderMax();
+  });
+}
+
+seekSlider.addEventListener("input", () => {
+  currentTimeContainer.textContent = calculateTime(seekSlider.value);
+  if (!audio.paused) {
+    cancelAnimationFrame(raf);
+  }
+});
+
+seekSlider.addEventListener("change", () => {
+  audio.currentTime = seekSlider.value;
+  if (!audio.paused) {
+    requestAnimationFrame(whilePlaying);
+  }
+});
+
+//makes the volume slider functional
+volumeSlider.addEventListener("input", (e) => {
+  const muteIcon = document.querySelector("#mute-icon i");
+  const value = e.target.value;
+  showRangeProgress(e.target);
+  audio.volume = value / 100;
+  muteIcon.addEventListener("click", () => {
+    showRangeProgress(0);
+  });
+});
