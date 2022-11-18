@@ -201,6 +201,7 @@
         <div class="good-morning-section mb-4">
           <div class="container-fluid">
             <div class="heading-primary mb-3">Good morning</div>
+
             <div
               class="good-morning-section-row row d-flex justify-content-center"
             >
@@ -293,7 +294,8 @@
       </div>
     </div>
     <div class="footer">
-      <div id="footer-container">
+      <div id="footer-container container">
+        <div class="row"></div>
         <div
           id="footer"
           class="col-12 d-flex justify-content-between align-items-center sticky"
@@ -307,7 +309,7 @@
               <div class="d-flex justify-content-start">Song name</div>
               <div class="d-flex justify-content-start">Artist name</div>
             </div>
-            <div id="heart-footer" class="d-sm-none d-md-block">
+            <div id="heart-footer" class="d-none d-md-block">
               <i class="bi bi-heart-fill"></i>
             </div>
           </div>
@@ -318,14 +320,23 @@
               id="controls-above-audio-player"
               class="d-flex justify-content-between align-items-center music-player-font-size"
             >
-              <div class="mx-2 d-none d-sm-block">
+              <div class="ml-auto ml-sm-0 mx-2 d-none d-sm-block">
                 <i class="bi bi-shuffle"></i>
               </div>
               <div class="mx-2 d-none d-sm-block">
                 <i class="bi bi-skip-start-fill"></i>
               </div>
-              <div class="mx-2 playPauseButton playpause-track">
-                <i id="play-icon" class="bi bi-play-circle-fill"></i>
+              <div
+                class="ml-auto ml-sm-0 mx-2 playPauseButton playpause-track d-flex d-sm-block"
+              >
+                <i
+                  class="bi bi-music-player d-block d-sm-none mr-2 iconJustOnXsScreen"
+                ></i>
+                <i
+                  id="play-icon"
+                  class="bi bi-play-circle-fill d-none d-sm-block"
+                ></i>
+                <i class="bi bi-play-fill d-block d-sm-none"></i>
               </div>
               <div class="mx-2 d-none d-sm-block">
                 <i class="bi bi-skip-end-fill"></i>
@@ -341,9 +352,15 @@
                 preload="metadata"
                 loop
               ></audio>
-              <span id="current-time" class="time">0:00</span>
-              <input type="range" id="seek-slider" max="100" value="0" />
-              <span id="duration" class="time">0:00</span>
+              <span id="current-time" class="time d-none d-sm-block">0:00</span>
+              <input
+                type="range"
+                id="seek-slider"
+                class="d-none d-sm-block"
+                max="100"
+                value="0"
+              />
+              <span id="duration" class="time d-none d-sm-block">0:00</span>
             </div>
           </div>
           <div
@@ -356,21 +373,102 @@
             <div class="mx-2 d-none d-sm-none d-md-block">
               <i class="bi bi-person-badge"></i>
             </div>
-            <div class="mx-2 d-flex d-none d-sm-block">
+            <div class="ml-2 d-sm-flex d-none d-sm-block">
               <div id="mute-icon" class="d-none d-sm-block">
                 <i class="bi bi-volume-down"></i>
               </div>
               <!-- <output id="volume-output">100</output> -->
-              <input
-                type="range"
-                id="volume-slider"
-                max="100"
-                value="100"
-                class="d-none d-sm-block"
+              <div class="d-flex align-items-center">
+                <input
+                  type="range"
+                  id="volume-slider"
+                  max="100"
+                  value="100"
+                  class="d-none d-sm-block"
+                />
+              </div>
+            </div>
+            <div class="mr-2 d-none d-sm-none d-md-block">
+              <i class="bi bi-arrows-angle-expand"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer for xs screens -->
+    <div class="footer-mobile">
+      <div class="container">
+        <div class="footer-mobile-player d-flex align-items-center">
+          <div class="container d-flex align-items-center">
+            <div class="mobile-player-img-div">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2738431fb4cb38f8ee96d3434c0"
+                alt=""
               />
             </div>
-            <div class="mx-2 d-none d-sm-none d-md-block">
-              <i class="bi bi-arrows-angle-expand"></i>
+            <div class="mobile-player-song-div d-flex flex-column">
+              <div class="mobile-player-song">The Division Bell</div>
+              <div class="mobile-player-artist">Pink Floyd</div>
+            </div>
+            <div class="mobile-player-icons d-flex align-items-center">
+              <div class="mr-3">
+                <i class="bi bi-pc-display"></i>
+              </div>
+              <div>
+                <i class="bi bi-play-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-mobile-navbar d-flex align-items-center">
+        <div class="container">
+          <div class="row mobile-navbar-icons d-flex align-items-center">
+            <div class="col-4">
+              <a
+                href="./homePage.html"
+                class="active-link d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="home d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="icon-div">
+                    <i class="bi bi-house-door-fill home-icon"></i>
+                  </div>
+                  <div class="link-text">Home</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="icon-div">
+                    <i class="bi bi-search search-icon"></i>
+                  </div>
+                  <div class="link-text">Search</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="icon-div">
+                    <i class="bi bi-collection library-icon"></i>
+                  </div>
+                  <div class="link-text">Your Library</div>
+                </div>
+              </a>
             </div>
           </div>
         </div>

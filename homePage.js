@@ -68,7 +68,7 @@ function displayAlbumCard(albumData) {
     ".good-morning-section-row"
   );
   const col = document.createElement("div");
-  col.classList = "col-12 col-md-6 col-lg-4";
+  col.classList = "col-6 col-sm-12 col-md-6 col-lg-4";
   col.innerHTML = `<a class="album-link card-link" href="./albumPage.html?id=${id}">
                       <div class="album-card-horizontal d-flex align-items-center">
                         <div>
