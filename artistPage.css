@@ -18,6 +18,16 @@ body {
   background-color: black;
 }
 
+/*-------------------------------first section of the page-------------------------------*/
+
+.right-container {
+  overflow: hidden;
+  overflow-y: auto;
+  height: calc(100vh - 90px);
+  width: 100%;
+  background-color: green;
+}
+
 .jumbotron-bg {
   background-image: url("https://spotmedia.ro/wp-content/uploads/2020/10/Queen-770x465.jpg");
   background-repeat: no-repeat;
@@ -35,6 +45,11 @@ body {
   font-weight: 700;
 }
 
+#jumbotron-container {
+  margin-top: -110px;
+}
+
+/*-------------------------------the grey container after jumbotron-------------------------------*/
 .music-container {
   background: linear-gradient(
     0deg,
@@ -58,7 +73,6 @@ body {
 .pause-button {
   width: 50px;
   font-size: 50px;
-  /* height: 50px; */
   border-radius: 50%;
   color: var(--color-green);
   transition: background-color 0.5s;
@@ -69,63 +83,8 @@ body {
   color: #3ddf72;
 }
 
-.shuffleXsScreens {
-  color: var(--color-white);
-  font-size: 20px;
-  transition: color 0.3s;
-}
-
-.shuffleXsScreens:hover {
-  color: rgba(213, 207, 207, 0.369);
-}
-
-.make-it-green {
-  background-color: var(--color-green);
-}
-
-.pause-button-lines {
-  height: 20px;
-  width: 5px;
-  background-color: var(--color-white);
-}
-
 .see-more {
   padding-left: 40px;
-}
-
-#profile-tag {
-  background-color: #170708;
-  color: var(--color-white);
-  border-radius: 100px;
-  display: block;
-  width: 150px;
-  height: 30px;
-}
-
-#profile-image {
-  display: inline-block;
-  min-height: 28px;
-  min-width: 28px;
-  border-radius: 50%;
-  background-color: grey;
-  position: relative;
-}
-
-#jumbotron-container {
-  margin-top: -110px;
-}
-
-#navbar-container {
-  background-color: transparent;
-  transition: background-color 0.5s;
-}
-
-.nav-active {
-  background-color: rgb(64, 64, 64) !important;
-}
-
-#navbar-container nav {
-  background-color: #6c676721;
 }
 
 .song-image-li-item {
@@ -149,15 +108,6 @@ body {
   color: #a49a9a;
 }
 
-.artist-name-footer {
-  margin-top: 15px;
-}
-
-#dropdown-button {
-  width: auto;
-  height: auto;
-}
-
 #artist-pick-image,
 #image-music-player {
   height: 70px;
@@ -165,7 +115,6 @@ body {
   background-image: url("https://spotmedia.ro/wp-content/uploads/2020/10/Queen-770x465.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: blue; */
 }
 
 #image-tag-posted-by {
@@ -187,6 +136,76 @@ body {
   transform: translateY(18px);
 }
 
+.seeMoreButton {
+  padding-left: 20px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.rank {
+  display: inline-block;
+  width: 20%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.liSongAndImageContainer {
+  width: 40%;
+}
+
+.song-image-li-item img {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.rank,
+.duration {
+  cursor: default;
+}
+
+ol li > div {
+  transform: translateY(40%);
+}
+
+/*-------------------------------header navbar-------------------------------*/
+#navbar-container {
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+.nav-active {
+  background-color: rgb(64, 64, 64) !important;
+}
+
+#navbar-container nav {
+  background-color: #6c676721;
+}
+
+#profile-tag {
+  background-color: #170708;
+  color: var(--color-white);
+  border-radius: 100px;
+  display: block;
+  width: 150px;
+  height: 30px;
+}
+
+#profile-image {
+  display: inline-block;
+  min-height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background-color: grey;
+  position: relative;
+}
+#dropdown-button {
+  width: auto;
+  height: auto;
+}
+
 #account-container {
   border-radius: 50px;
   background-color: #170708;
@@ -201,23 +220,6 @@ body {
   right: 0;
   top: 1px;
   bottom: 0;
-}
-
-.wirte-just-on-one-line {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.align-to-the-left {
-  position: relative;
-  left: -10px;
-}
-
-.seeMoreButton {
-  padding-left: 20px;
-  font-size: 10px;
-  font-weight: bold;
 }
 
 .arrowLeftAndRight {
@@ -247,21 +249,19 @@ body {
   font-size: 10px;
 }
 
-.center-image {
-  background-repeat: no-repeat;
-  background-size: cover;
+/*-------------------------------XS screens-------------------------------*/
+.shuffleXsScreens {
+  color: var(--color-white);
+  font-size: 20px;
+  transition: color 0.3s;
 }
 
-.rank {
-  display: inline-block;
-  width: 20%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.shuffleXsScreens:hover {
+  color: rgba(213, 207, 207, 0.369);
 }
 
-.liSongAndImageContainer {
-  width: 40%;
+.make-it-green {
+  background-color: var(--color-green);
 }
 
 .playButtonXsScreens {
@@ -274,128 +274,67 @@ body {
   color: #3ddf72;
 }
 
-#popular-releases {
-  /* background-color: #121212; */
-  color: white;
-  /* padding-bottom: 90px; */
+.iconJustOnXsScreen {
+  font-size: 25px;
+  margin-block: auto;
 }
 
-.card {
-  background-color: #1a1919;
-  height: 300px;
-  transition: background-color 0.3s;
-}
-
-.card-body {
-  padding-inline: 0;
-  padding-block: 15px;
-}
-
-.card-title {
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 0;
-}
-
-.card-text {
-  font-size: 15px;
-  width: 100%;
-  height: 26px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-span.album-card-body {
-  /* height: 26px; */
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  text-align: left;
-}
-
-.title-headings {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.list-styling {
-  font-size: 15px;
-  font-weight: 400;
-}
-
-.card img {
-  height: 150px;
-  border-radius: 5px;
-}
-.card-img,
-.card-img-top {
-  object-fit: cover;
-}
-
-.relative-position {
-  position: relative;
-}
-
-.play-button-on-card {
-  visibility: hidden;
-  color: #1fb750;
-  font-size: 50px;
-  position: absolute;
-  right: 10px;
-  bottom: 0;
-  transform: translateY(10px);
-  transition: transform 0.5s;
-  /* margin-right: 5px;
-  margin-bottom: 5px; */
-}
-
-.play-button-on-card:hover {
-  font-size: 3rem;
-}
-
-.song-card-vertical:hover {
+.footer-xs-items-to-click {
   cursor: pointer;
 }
-
-.card:hover .play-button-on-card {
-  visibility: visible;
-  transform: translateY(0px);
+.footerOnXsScreens a {
+  text-decoration: none;
+  color: white;
 }
 
-.card:hover {
-  background-color: #3b3a3a;
+.footerOnXsScreens {
+  height: 90px;
+  color: white;
+  transition: color 0.3s;
+  background-color: #1919198b;
 }
 
-.lateral-navbar-container {
-  width: 240px;
-  background-color: transparent;
-  transition: baclground-color 0.5s;
-
-  /* background-color: #121212; */
-  /* border-right: 3px solid black; */
+.footerOnXsScreens i:hover,
+.hover-xs-footer-text:hover {
+  color: #484848;
 }
 
-.right-container {
-  overflow: hidden;
-  overflow-y: auto;
-  height: calc(100vh - 90px);
-  width: 100%;
-  background-color: green;
+@media screen and (max-width: 575px) {
+  .right-container {
+    height: calc(100vh - 180px);
+  }
+
+  #artist-pick-image {
+    border-radius: 50%;
+  }
+
+  #artist-and-song-footer div {
+    width: 200px;
+  }
+
+  #controls-above-audio-player {
+    justify-content: flex-end;
+    width: 100px;
+    margin-left: auto !important;
+  }
+
+  .playpause-track {
+    margin-right: 0px !important;
+  }
+}
+
+/*f-------------------------------ooter-------------------------------*/
+.artist-name-footer {
+  margin-top: 15px;
 }
 
 #footer {
   background-color: #191919;
   color: var(--color-white);
-  /* position: fixed; */
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
-  /* #191919 */
 }
 
 #footer-container {
@@ -418,7 +357,6 @@ span.album-card-body {
 }
 
 .slider_container {
-  /* width: 75%; */
   width: 300px;
   display: flex;
   justify-content: space-between;
@@ -427,8 +365,6 @@ span.album-card-body {
 
 .music-player-font-size {
   font-size: 20px;
-  /* margin-inline: 20px; */
-  /* width: 200px; */
   color: var(--color-white);
 }
 
@@ -482,74 +418,122 @@ span.album-card-body {
   color: rgb(249, 71, 71) !important;
 }
 
-.song-image-li-item img {
+.wirte-just-on-one-line {
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.align-to-the-left {
+  position: relative;
+  left: -10px;
+}
+
+.center-image {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
-.rank,
-.duration {
-  cursor: default;
+/*-------------------------------Popular releases section-------------------------------*/
+
+#popular-releases {
+  color: white;
 }
 
-.iconJustOnXsScreen {
-  font-size: 25px;
-  margin-block: auto;
+.card {
+  background-color: #1a1919;
+  height: 300px;
+  transition: background-color 0.3s;
 }
 
-.footer-xs-items-to-click {
+.card-body {
+  padding-inline: 0;
+  padding-block: 15px;
+}
+
+.card-title {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.card-text {
+  font-size: 15px;
+  width: 100%;
+  height: 26px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+span.album-card-body {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.title-headings {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.list-styling {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.card img {
+  height: 150px;
+  border-radius: 5px;
+}
+.card-img,
+.card-img-top {
+  object-fit: cover;
+}
+
+.relative-position {
+  position: relative;
+}
+
+.play-button-on-card {
+  visibility: hidden;
+  color: #1fb750;
+  font-size: 50px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  transform: translateY(10px);
+  transition: transform 0.5s;
+}
+
+.play-button-on-card:hover {
+  font-size: 3rem;
+}
+
+.song-card-vertical:hover {
   cursor: pointer;
 }
-.footerOnXsScreens a {
-  text-decoration: none;
-  color: white;
+
+.card:hover .play-button-on-card {
+  visibility: visible;
+  transform: translateY(0px);
 }
 
-.footerOnXsScreens {
-  height: 90px;
-  color: white;
-  transition: color 0.3s;
-  background-color: #1919198b;
+.card:hover {
+  background-color: #3b3a3a;
 }
 
-.footerOnXsScreens i:hover,
-.hover-xs-footer-text:hover {
-  color: #484848;
+.lateral-navbar-container {
+  width: 240px;
+  background-color: transparent;
+  transition: baclground-color 0.5s;
 }
 
-ol li > div {
-  transform: translateY(40%);
-}
-
-@media screen and (max-width: 575px) {
-  .right-container {
-    height: calc(100vh - 180px);
-  }
-
-  #artist-pick-image {
-    border-radius: 50%;
-  }
-
-  #artist-and-song-footer div {
-    width: 200px;
-  }
-
-  #controls-above-audio-player {
-    justify-content: flex-end;
-    width: 100px;
-    margin-left: auto !important;
-  }
-
-  .playpause-track {
-    margin-right: 0px !important;
-    /* margin-left: auto !important; */
-    /* width: 50px; */
-  }
-}
-
-/*--------Aygen css for the lateral navbar---------*/
+/*--------------------------------Aygen css for the lateral navbar-------------------------------*/
 
 .custom-navbar {
   position: relative;
