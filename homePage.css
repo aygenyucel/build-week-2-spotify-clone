@@ -681,6 +681,8 @@ ol li > div {
   display: none;
 }
 /* ***************************************** */
+@media screen and (min-width: 500px) and (max-width: 575px) {
+}
 @media screen and (max-width: 575px) {
   .footer-mobile {
     display: block;
@@ -717,15 +719,15 @@ ol li > div {
   .album-card-horizontal-name {
     padding-right: 10px;
   }
-  .recently-played-section-row,
+  /* .recently-played-section-row,
   .shows-to-try-section-row {
     display: flex !important;
-    flex-wrap: nowrap; /* [1] */
-    overflow-x: auto; /* [2] */
-    -webkit-overflow-scrolling: touch; /* [3] */
-    -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
+    flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     display: block;
-  }
+  } */
 
   .recently-played-section-row > div,
   .shows-to-try-section-row > div {
@@ -737,5 +739,16 @@ ol li > div {
     padding-inline: 15px;
     height: 319px;
     width: 241px;
+  }
+  /* *********** */
+
+  .recently-played-section-row,
+  .shows-to-try-section-row {
+    display: flex !important;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    display: block;
   }
 }
