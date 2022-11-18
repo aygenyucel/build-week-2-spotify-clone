@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./homePage.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="home-page">
+      <div class="custom-navbar">
+        <div class="navbar-logo">
+          <div class="container">
+            <a href="#">
+              <img
+                src="./spotify-logo.png"
+                class="navbar-logo"
+                alt="spotify logo"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="navbar-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="primary-options navbar-nav d-flex flex-column">
+                  <div class="home">
+                    <a
+                      href="./homePage.html"
+                      class="active-link d-flex align-items-center"
+                    >
+                      <div class="icon-div">
+                        <i class="bi bi-house-door-fill home-icon"></i>
+                      </div>
+                      <span class="link-text">Home</span>
+                    </a>
+                  </div>
+                  <div class="search">
+                    <a href="#" class="d-flex align-items-center">
+                      <div class="icon-div">
+                        <i class="bi bi-search search-icon"></i>
+                      </div>
+                      <span class="link-text">Search</span>
+                    </a>
+                  </div>
+                  <div class="your-library">
+                    <a href="#" class="d-flex align-items-center">
+                      <div class="icon-div">
+                        <i class="bi bi-collection library-icon"></i>
+                      </div>
+                      <span class="link-text">Your Library</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="secondary-options">
+                  <div class="create-playlist">
+                    <a href="#" class="d-flex align-items-center">
+                      <div
+                        class="icon-div create-playlist-icon d-flex align-items-center justify-content-center"
+                      >
+                        <i class="bi bi-plus-lg"></i>
+                      </div>
+                      <span>Create Playlist</span>
+                    </a>
+                  </div>
+                  <div class="liked-songs">
+                    <a href="#" class="d-flex align-items-center">
+                      <div class="icon-div liked-songs-icon">
+                        <i class="bi bi-heart-fill"></i>
+                      </div>
+                      <span>Liked Songs</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr class="divider" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-bottom">
+          <div class="container">
+            <ul class="navbar-playlist list-group">
+              <li class="navbar-playlist-item">Funky Heavy Bluesy</li>
+              <li class="navbar-playlist-item">Your Top Songs 2020</li>
+              <li class="navbar-playlist-item">
+                In Love With You - Erykah lorem ipsum
+              </li>
+              <li class="navbar-playlist-item">This Is Rod Stewart</li>
+              <li class="navbar-playlist-item">FRANCHISE ft. Young</li>
+              <li class="navbar-playlist-item">Your Top Songs 2019</li>
+              <li class="navbar-playlist-item">Palleggio</li>
+              <li class="navbar-playlist-item">This Is Joe Bonamassa</li>
+              <li class="navbar-playlist-item">Jun19</li>
+              <li class="navbar-playlist-item collaborative-playlist-item">
+                Jack 30th Party 2 Lorem, ipsum
+                <span class="collaborative-icon"
+                  ><i class="bi bi-people"></i
+                ></span>
+              </li>
+              <li class="navbar-playlist-item collaborative-playlist-item">
+                Jack 30th Party
+                <span class="collaborative-icon"
+                  ><i class="bi bi-people"></i
+                ></span>
+              </li>
+              <li class="navbar-playlist-item">This Is Opeth</li>
+              <li class="navbar-playlist-item">This Is Rod Stewart</li>
+              <li class="navbar-playlist-item">
+                FRANCHISE ft. Young Thugsjkfh
+              </li>
+              <li class="navbar-playlist-item">Your Top Songs 2021</li>
+              <li class="navbar-playlist-item">Oct16</li>
+              <li class="navbar-playlist-item">Your Top Songs 2018</li>
+            </ul>
+          </div>
+        </div>
+        <div class="install-app">
+          <div class="container">
+            <a href="#" class="d-flex align-items-center">
+              <div class="icon-div">
+                <i class="bi bi-arrow-down-circle install-icon"></i>
+              </div>
+              <span>Install App</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="main" id="right-container">
+        <!-- header -->
+        <div id="navbar-container" class="sticky-top">
+          <nav
+            class="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item active">
+                  <a class="nav-link px-0 mr-3" href="#"
+                    ><i
+                      class="bi bi-chevron-left arrowLeftAndRight arrow-left"
+                    ></i>
+                    <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-0 disabled"
+                    ><i
+                      class="bi bi-chevron-right arrowLeftAndRight arrow-right"
+                    ></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <a
+                id="account-container"
+                class="py-3 btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div
+                  class="d-flex align-items-center overflow-hidden align-to-the-left"
+                >
+                  <span id="profile-image"
+                    ><i class="bi bi-person person-icon-account"></i
+                  ></span>
+                  <span class="pl-1 wirte-just-on-one-line"
+                    >namedsddsajdsjkdnsak</span
+                  >
+                </div>
+              </a>
+
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Account</a>
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!-- main section -->
+        <div class="good-morning-section mb-4">
+          <div class="container-fluid">
+            <div class="position-relative mb-3">
+              <div class="heading-primary">Good morning</div>
+              <div class="header-mobile d-flex align-items-center">
+                <div class="header-mobile-icons d-flex align-items-center">
+                  <a
+                    href="#"
+                    class="d-flex align-items-center justify-content-center"
+                  >
+                    <div
+                      class="d-flex flex-column justify-content-center align-items-center"
+                    >
+                      <div class="icon-div">
+                        <i class="bi bi-bell"></i>
+                      </div>
+                    </div>
+                  </a>
+
+                  <a
+                    href="#"
+                    class="d-flex align-items-center justify-content-center"
+                  >
+                    <div
+                      class="d-flex flex-column justify-content-center align-items-center"
+                    >
+                      <div class="icon-div">
+                        <i class="bi bi-clock-history"></i>
+                      </div>
+                    </div>
+                  </a>
+
+                  <a
+                    href="#"
+                    class="d-flex align-items-center justify-content-center"
+                  >
+                    <div
+                      class="d-flex flex-column justify-content-center align-items-center"
+                    >
+                      <div class="icon-div">
+                        <i class="bi bi-gear"></i>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="good-morning-section-row row d-flex justify-content-center"
+            >
+              <!--TODO: When we are fetching, we need to create algorithm for displaying "6" album card here -->
+              <!-- <div class="col-12 col-md-6 col-lg-4">
+                <a class="album-link card-link" href="./albumPage.html">
+                  <div class="album-card-horizontal d-flex align-items-center">
+                    <div>
+                      <img
+                        class="album-img album-card-horizontal-img"
+                        src="https://upload.wikimedia.org/wikipedia/tr/thumb/a/a7/Random_Access_Memories.jpg/250px-Random_Access_Memories.jpg"
+                        alt="album image"
+                      />
+                    </div>
+                    <div class="album-name album-card-horizontal-name">
+                      Random Access Memories
+                    </div>
+                  </div>
+                </a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="recently-played-section mb-4">
+          <div class="container-fluid">
+            <div class="heading mb-3">Recently played</div>
+            <div class="row recently-played-section-row d-flex">
+              <!--TODO: When we are fetching, we need to create algorithm for displaying "7" song cards here -->
+
+              <!-- <div class="col">
+                <div class="song-card-vertical">
+                  <div class="position-relative">
+                    <img
+                      src="https://i.scdn.co/image/ab67616d0000b2736976009675621c80cafa1ff5"
+                      alt=""
+                      class="song-card-vertical-img song-img"
+                    />
+                    <div>
+                      <i class="bi bi-play-circle-fill play-button-on-card"></i>
+                    </div>
+                  </div>
+                  <div class="mt-3 w-100">
+                    <div class="song-name song-card-vertical-song-name">
+                      Master of Puppet
+                    </div>
+                    <a class="artist-link card-link" href="./artistPage.html">
+                      <div class="artist-name song-card-vertical-artist-name">
+                        Metallica
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="shows-to-try-section">
+          <div class="container-fluid">
+            <div class="heading">Shows to try</div>
+            <div class="heading-content mb-4">
+              Artists we think you'll get hooked on.
+            </div>
+            <div class="shows-to-try-section-row row d-flex">
+              <!--TODO: When we are fetching, we need to create algorithm for displaying "7" artist cards here -->
+
+              <!-- <div class="col">
+                <a class="artist-link card-link" href="./artistPage.html">
+                  <div class="artist-card-vertical">
+                    <div>
+                      <img
+                        src="https://i.scdn.co/image/ab6761610000e5eb0accbbe13e1aa147dd27671c"
+                        alt=""
+                        class="artist-card-vertical-img song-img"
+                      />
+                    </div>
+                    <div class="mt-3 w-100">
+                      <div class="artist-name artist-card-vertical-artist-name">
+                        Muse
+                      </div>
+                      <div class="artist-card-badge">Artist</div>
+                    </div>
+                  </div>
+                </a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div id="footer-container container">
+        <div class="row"></div>
+        <div
+          id="footer"
+          class="col-12 d-flex justify-content-between align-items-center sticky"
+        >
+          <div
+            id="music-player-container"
+            class="d-flex justify-content-between align-items-center"
+          >
+            <div id="image-music-player" class="mr-2">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2738431fb4cb38f8ee96d3434c0"
+                alt=""
+              />
+            </div>
+            <div id="artist-and-song-footer" class="mr-4 d-sm-none d-md-block">
+              <div class="d-flex justify-content-start">The Division Bell</div>
+              <div class="d-flex justify-content-start">Pink Floyd</div>
+            </div>
+            <div id="heart-footer" class="d-none d-md-block">
+              <i class="bi bi-heart-fill"></i>
+            </div>
+          </div>
+          <div
+            class="d-flex flex-column justify-content-between align-items-center"
+          >
+            <div
+              id="controls-above-audio-player"
+              class="d-flex justify-content-between align-items-center music-player-font-size"
+            >
+              <div class="ml-auto ml-sm-0 mx-2 d-none d-sm-block">
+                <i class="bi bi-shuffle"></i>
+              </div>
+              <div class="mx-2 d-none d-sm-block">
+                <i class="bi bi-skip-start-fill"></i>
+              </div>
+              <div
+                class="ml-auto ml-sm-0 mx-2 playPauseButton playpause-track d-flex d-sm-block"
+              >
+                <i
+                  class="bi bi-music-player d-block d-sm-none mr-2 iconJustOnXsScreen"
+                ></i>
+                <i
+                  id="play-icon"
+                  class="bi bi-play-circle-fill d-none d-sm-block"
+                ></i>
+                <i class="bi bi-play-fill d-block d-sm-none"></i>
+              </div>
+              <div class="mx-2 d-none d-sm-block">
+                <i class="bi bi-skip-end-fill"></i>
+              </div>
+              <div class="mx-2 d-none d-sm-block">
+                <i class="bi bi-repeat"></i>
+              </div>
+            </div>
+            <div id="audio-player-container" class="slider_container d-flex">
+              <audio
+                id="audio-tag"
+                src="https://cdns-preview-6.dzcdn.net/stream/c-60db3f7f3d6a419da5c582d9b7b53506-3.mp3"
+                preload="metadata"
+                loop=""
+              ></audio>
+              <span id="current-time" class="time d-none d-sm-block">0:00</span>
+              <input
+                type="range"
+                id="seek-slider"
+                class="d-none d-sm-block"
+                max="100"
+                value="0"
+              />
+              <span id="duration" class="time d-none d-sm-block">0:00</span>
+            </div>
+          </div>
+          <div
+            id="controls-right-side-of-footer"
+            class="d-flex justify-content-end music-player-font-size"
+          >
+            <div class="mx-2 d-none d-sm-none d-lg-block">
+              <i class="bi bi-border-width"></i>
+            </div>
+            <div class="mx-2 d-none d-sm-none d-md-block">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <div class="ml-2 d-sm-flex d-none d-sm-block">
+              <div id="mute-icon" class="d-none d-sm-block">
+                <i class="bi bi-volume-down"></i>
+              </div>
+              <!-- <output id="volume-output">100</output> -->
+              <div class="d-flex align-items-center">
+                <input
+                  type="range"
+                  id="volume-slider"
+                  max="100"
+                  value="100"
+                  class="d-none d-sm-block"
+                />
+              </div>
+            </div>
+            <div class="mr-2 d-none d-sm-none d-md-block">
+              <i class="bi bi-arrows-angle-expand"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer for xs screens -->
+    <div class="footer-mobile">
+      <div class="container">
+        <div class="footer-mobile-player d-flex align-items-center">
+          <div class="container d-flex align-items-center">
+            <div class="mobile-player-img-div">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2738431fb4cb38f8ee96d3434c0"
+                alt=""
+              />
+            </div>
+            <div class="mobile-player-song-div d-flex flex-column">
+              <div class="mobile-player-song">The Division Bell</div>
+              <div class="mobile-player-artist">Pink Floyd</div>
+            </div>
+            <div class="mobile-player-icons d-flex align-items-center">
+              <div class="mr-3">
+                <i class="bi bi-pc-display"></i>
+              </div>
+              <div>
+                <i class="bi bi-play-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-mobile-navbar d-flex align-items-center">
+        <div class="container">
+          <div class="row mobile-navbar-icons d-flex align-items-center">
+            <div class="col-4">
+              <a
+                href="./homePage.html"
+                class="active-link d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="home d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="icon-div">
+                    <i class="bi bi-house-door-fill home-icon"></i>
+                  </div>
+                  <div class="link-text">Home</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="icon-div">
+                    <i class="bi bi-search search-icon"></i>
+                  </div>
+                  <div class="link-text">Search</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="icon-div">
+                    <i class="bi bi-collection library-icon"></i>
+                  </div>
+                  <div class="link-text">Your Library</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./homePage.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,714 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+:root {
+  --font-main: "Montserrat", sans-serif;
+  --color-gray: #a5a5a5;
+  --color-white: white;
+  --font-main: "Montserrat", sans-serif;
+  --color-dark-gray: #7e7e7e;
+  --color-darker-gray: #484848;
+  --color-linear-like: linear-gradient(135deg, #450af5, #c4efd9);
+  --bg-transparent-lighter: rgba(117, 115, 115, 0.5);
+  --bg-transparent-light: rgba(72, 72, 72, 0.5);
+  --bg-transparent-dark: rgba(24, 24, 24, 0.8);
+  --color-green: #1fb750;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+}
+
+/*-------------------------------first section of the page-------------------------------*/
+
+.right-container {
+  overflow: hidden;
+  overflow-y: auto;
+  height: calc(100vh - 90px);
+  width: 100%;
+  background-color: green;
+}
+
+.jumbotron-bg {
+  background-image: url("https://spotmedia.ro/wp-content/uploads/2020/10/Queen-770x465.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 325px;
+  margin-bottom: 0;
+  filter: brightness(90%);
+}
+
+#artist-name {
+  font-weight: 700;
+}
+
+#monthly-listeners {
+  font-weight: 700;
+}
+
+#jumbotron-container {
+  margin-top: -110px;
+}
+
+/*-------------------------------the grey container after jumbotron-------------------------------*/
+.music-container {
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(37, 37, 37, 1) 75%,
+    rgba(89, 89, 89, 1) 100%
+  );
+}
+
+.follow-button {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 10px;
+}
+
+.follow-button:hover {
+  cursor: pointer;
+}
+
+.pause-button {
+  width: 50px;
+  font-size: 50px;
+  border-radius: 50%;
+  color: var(--color-green);
+  transition: background-color 0.5s;
+}
+
+.pause-button:hover {
+  cursor: pointer;
+  color: #3ddf72;
+}
+
+.see-more {
+  padding-left: 40px;
+}
+
+.song-image-li-item {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("");
+}
+
+.song-name {
+  width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-name:hover {
+  cursor: pointer;
+  color: #a49a9a;
+}
+
+#artist-pick-image,
+#image-music-player {
+  height: 70px;
+  width: 70px;
+  background-image: url("https://spotmedia.ro/wp-content/uploads/2020/10/Queen-770x465.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#image-tag-posted-by {
+  height: 25px;
+  width: 25px;
+  background-color: blue;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#image-tag-posted-by img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.font-size-artist-pick-section {
+  font-size: 10px;
+  transform: translateY(18px);
+}
+
+.seeMoreButton {
+  padding-left: 20px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+button.seeMoreButton:hover {
+  color: #484848;
+}
+
+.rank {
+  display: inline-block;
+  width: 20%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.liSongAndImageContainer {
+  width: 40%;
+}
+
+.song-image-li-item img {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.rank,
+.duration {
+  cursor: default;
+}
+
+ol li > div {
+  transform: translateY(40%);
+}
+
+/*-------------------------------header navbar-------------------------------*/
+#navbar-container {
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+.nav-active {
+  background-color: rgb(64, 64, 64) !important;
+}
+
+#navbar-container nav {
+  background-color: #6c676721;
+}
+
+#profile-tag {
+  background-color: #170708;
+  color: var(--color-white);
+  border-radius: 100px;
+  display: block;
+  width: 150px;
+  height: 30px;
+}
+
+#profile-image {
+  display: inline-block;
+  min-height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background-color: grey;
+  position: relative;
+}
+#dropdown-button {
+  width: auto;
+  height: auto;
+}
+
+#account-container {
+  border-radius: 50px;
+  background-color: #170708;
+  height: 30px;
+  width: 150px;
+  border: none;
+}
+
+.person-icon-account {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1px;
+  bottom: 0;
+}
+
+.arrowLeftAndRight {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  background-color: #3b393952;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-left {
+  color: var(--color-white);
+  transition: background-color 0.5s;
+}
+
+.arrow-left:hover {
+  background-color: rgba(213, 207, 207, 0.369);
+}
+
+.arrow-right {
+  color: grey;
+}
+
+.lead {
+  font-size: 10px;
+}
+
+/*-------------------------------XS screens-------------------------------*/
+.shuffleXsScreens {
+  color: var(--color-white);
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.shuffleXsScreens:hover {
+  color: rgba(213, 207, 207, 0.369);
+}
+
+.make-it-green {
+  background-color: var(--color-green);
+}
+
+.playButtonXsScreens {
+  font-size: 50px;
+  color: var(--color-green);
+  transition: color 0.5s;
+}
+.playButtonXsScreens:hover {
+  cursor: pointer;
+  color: #3ddf72;
+}
+
+.iconJustOnXsScreen {
+  font-size: 25px;
+  margin-block: auto;
+}
+
+.footer-xs-items-to-click {
+  cursor: pointer;
+}
+.footerOnXsScreens a {
+  text-decoration: none;
+  color: white;
+}
+
+.footerOnXsScreens {
+  height: 90px;
+  color: white;
+  transition: color 0.3s;
+  background-color: #1919198b;
+}
+
+.footerOnXsScreens i:hover,
+.hover-xs-footer-text:hover {
+  color: #484848;
+}
+
+@media screen and (max-width: 575px) {
+  .right-container {
+    height: calc(100vh - 180px);
+  }
+
+  #artist-pick-image {
+    border-radius: 50%;
+  }
+
+  #artist-and-song-footer div {
+    width: 200px;
+  }
+
+  #controls-above-audio-player {
+    justify-content: flex-end;
+    width: 100px;
+    margin-inline: 0 !important;
+  }
+
+  .playpause-track {
+    margin-right: 0px !important;
+  }
+}
+
+/*-------------------------------footer-------------------------------*/
+.artist-name-footer {
+  margin-top: 15px;
+}
+
+#footer {
+  background-color: #191919;
+  color: var(--color-white);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#footer-container {
+  width: 100vw;
+  height: 90px;
+}
+
+#music-player-container {
+  height: 90px;
+}
+
+#image-music-player {
+  width: 70px;
+  height: 70px;
+  background-color: green;
+}
+
+.playPauseButton {
+  font-size: 35px;
+}
+
+.slider_container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.music-player-font-size {
+  font-size: 20px;
+  color: var(--color-white);
+}
+
+#seek-slider {
+  width: 60%;
+  height: 3px;
+}
+
+#volume-slider {
+  margin-block: auto;
+  width: 80%;
+  height: 3px;
+}
+
+#controls-above-audio-player {
+  margin-left: 60px;
+}
+
+#controls-above-audio-player i,
+#controls-right-side-of-footer i,
+#heart-footer i,
+#artist-and-song-footer div {
+  color: var(--color-white);
+  transition: color 0.5s;
+}
+
+#controls-above-audio-player i:hover,
+#controls-right-side-of-footer i:hover,
+#heart-footer i:hover,
+#artist-and-song-footer div:hover {
+  color: grey;
+}
+
+#artist-and-song-footer {
+  width: 100px;
+  height: 70px;
+}
+
+#artist-and-song-footer div {
+  cursor: default;
+  font-size: 15px;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.red-color {
+  cursor: pointer;
+  color: rgb(249, 71, 71) !important;
+}
+
+.wirte-just-on-one-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.align-to-the-left {
+  position: relative;
+  left: -10px;
+}
+
+.center-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*-------------------------------Popular releases section-------------------------------*/
+
+#popular-releases {
+  color: white;
+}
+
+.card {
+  background-color: #1a1919;
+  height: 300px;
+  transition: background-color 0.3s;
+}
+
+.card-body {
+  padding-inline: 0;
+  padding-block: 15px;
+}
+
+.card-title {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.card-text {
+  font-size: 15px;
+  width: 100%;
+  height: 26px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+span.album-card-body {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.title-headings {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.list-styling {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.card img {
+  height: 150px;
+  border-radius: 5px;
+}
+.card-img,
+.card-img-top {
+  object-fit: cover;
+}
+
+.relative-position {
+  position: relative;
+}
+
+.play-button-on-card {
+  visibility: hidden;
+  color: #1fb750;
+  font-size: 50px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  transform: translateY(10px);
+  transition: transform 0.5s;
+}
+
+.play-button-on-card:hover {
+  font-size: 3rem;
+}
+
+.song-card-vertical:hover {
+  cursor: pointer;
+}
+
+.card:hover .play-button-on-card {
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+.card:hover {
+  background-color: #3b3a3a;
+}
+
+.lateral-navbar-container {
+  width: 240px;
+  background-color: transparent;
+  transition: baclground-color 0.5s;
+}
+
+/*--------------------------------Aygen css for the lateral navbar-------------------------------*/
+
+.custom-navbar {
+  position: relative;
+  /* height: 80vh; */
+  height: calc(100vh - 90px);
+  /* TODO: Calculate height depend on  the bottom of page */
+  background-color: black;
+  width: 100%;
+  /* width: 240px; */
+  color: var(--color-gray);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-block: 20px;
+  padding-inline: 8px;
+}
+
+.custom-navbar .navbar-logo {
+  width: 135px;
+  height: auto;
+  object-fit: cover;
+}
+
+.active-link > .link-text,
+.active-link > .icon-div {
+  color: var(--color-white);
+}
+
+.custom-navbar .icon-div {
+  margin-right: 15px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 8px;
+}
+
+.custom-navbar .navbar-top .primary-options {
+  margin-block: 25px;
+}
+
+.custom-navbar .navbar-top .primary-options i,
+.install-icon {
+  font-size: 23px;
+}
+
+.custom-navbar .navbar-top a {
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.custom-navbar .navbar-top .secondary-options .create-playlist-icon {
+  background-color: var(--color-gray);
+  color: black;
+  border-radius: 2px;
+}
+
+.custom-navbar .navbar-top .secondary-options .liked-songs-icon {
+  background: var(--color-linear);
+  border-radius: 2px;
+  /* filter: brightness(30%); */
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s ease-out;
+}
+
+.divider {
+  background-color: #252525;
+  border-width: 0.5px;
+  margin-block: 10px;
+}
+
+.custom-navbar .navbar-bottom {
+  float: left;
+  width: 100%;
+  overflow-y: auto;
+  max-height: calc(100% - 338px);
+  font-size: 0.8rem;
+}
+.custom-navbar .navbar-bottom .navbar-playlist {
+  list-style: none;
+}
+
+.custom-navbar .navbar-bottom .navbar-playlist .navbar-playlist-item {
+  margin-block: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  cursor: default;
+}
+
+.navbar-bottom::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.navbar-bottom::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+.navbar-bottom::-webkit-scrollbar-thumb {
+  background-color: var(--color-darker-gray); /* color of the scroll thumb */
+  max-height: 50px;
+}
+
+.collaborative-playlist-item {
+  position: relative;
+  padding-right: 20px;
+}
+.collaborative-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  font-size: 15px;
+  width: 15px;
+}
+
+.install-app {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  background-color: black;
+  z-index: 999;
+  padding-inline: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.install-app a {
+  text-decoration: none;
+  color: var(--color-gray);
+  transition: color 0.4s ease-out;
+}
+
+.link-text,
+.custom-navbar .navbar-top .secondary-options > div > a {
+  transition: color 0.4s ease-out;
+}
+
+.create-playlist-icon {
+  transition: background-color 0.4s ease-out;
+}
+
+.custom-navbar .navbar-bottom .navbar-playlist .navbar-playlist-item:hover,
+.custom-navbar .navbar-top .primary-options div > a:hover .link-text,
+.custom-navbar .navbar-top .secondary-options > div > a:hover,
+.custom-navbar .install-app > div:hover {
+  color: white;
+}
+
+.custom-navbar
+  .navbar-top
+  .secondary-options
+  .create-playlist
+  > a:hover
+  .create-playlist-icon {
+  background-color: white;
+}
+
+.custom-navbar
+  .navbar-top
+  .secondary-options
+  .liked-songs
+  > a:hover
+  .liked-songs-icon {
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0);
+}
+
+.install-app a:hover {
+  color: white;
+}
