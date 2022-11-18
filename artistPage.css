@@ -146,6 +146,11 @@ body {
 
 .song-name:hover {
   cursor: pointer;
+  color: #a49a9a;
+}
+
+.artist-name-footer {
+  margin-top: 15px;
 }
 
 #dropdown-button {
@@ -484,9 +489,22 @@ span.album-card-body {
   background-position: center;
 }
 
+.rank,
+.duration {
+  cursor: default;
+}
+
 .iconJustOnXsScreen {
   font-size: 25px;
   margin-block: auto;
+}
+
+.footer-xs-items-to-click {
+  cursor: pointer;
+}
+.footerOnXsScreens a {
+  text-decoration: none;
+  color: white;
 }
 
 .footerOnXsScreens {
@@ -496,7 +514,8 @@ span.album-card-body {
   background-color: #1919198b;
 }
 
-.footerOnXsScreens i:hover {
+.footerOnXsScreens i:hover,
+.hover-xs-footer-text:hover {
   color: #484848;
 }
 
@@ -511,6 +530,22 @@ ol li > div {
 
   #artist-pick-image {
     border-radius: 50%;
+  }
+
+  #artist-and-song-footer div {
+    width: 200px;
+  }
+
+  #controls-above-audio-player {
+    justify-content: flex-end;
+    width: 100px;
+    margin-left: auto !important;
+  }
+
+  .playpause-track {
+    margin-right: 0px !important;
+    /* margin-left: auto !important; */
+    /* width: 50px; */
   }
 }
 
