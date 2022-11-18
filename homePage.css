@@ -369,15 +369,9 @@
 
 /* ***************************************** */
 /* navbar-container (header): */
-#navbar-container {
-  /* background-color: transparent; */
-  transition: background-color 0.5s;
-}
 
 .nav-active {
-  background-color: green !important;
-  /* background-color: red !important; */
-  /* background-color: #333333 !important; */
+  /* background-color: #540302; */
 }
 
 /* #navbar-container nav {

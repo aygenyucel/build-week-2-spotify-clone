@@ -6,14 +6,15 @@ window.onload = () => {
   displayGoodMorningSection();
 };
 
-// const navbar = document.querySelector(".right-container");
-// window.onscroll = () => {
-//   if (window.scrollY > 30) {
-//     navbar.classList.add("nav-active");
-//   } else {
-//     navbar.classList.remove("nav-active");
-//   }
-// };
+const navbar = document.querySelector("#navbar-container");
+const rightContainer = document.querySelector("#right-container");
+rightContainer.onscroll = () => {
+  if (rightContainer.scrollTop > 250) {
+    navbar.classList.add("nav-active");
+  } else {
+    navbar.classList.remove("nav-active");
+  }
+};
 
 // **************displaying Good Morning Section************
 async function displayGoodMorningSection() {
