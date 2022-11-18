@@ -480,6 +480,10 @@
   height: 70px;
   background-color: green;
 }
+#image-music-player img {
+  width: 100%;
+  height: 100%;
+}
 
 .playPauseButton {
   font-size: 35px;
@@ -719,15 +723,6 @@ ol li > div {
   .album-card-horizontal-name {
     padding-right: 10px;
   }
-  /* .recently-played-section-row,
-  .shows-to-try-section-row {
-    display: flex !important;
-    flex-wrap: wrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    display: block;
-  } */
 
   .recently-played-section-row > div,
   .shows-to-try-section-row > div {
